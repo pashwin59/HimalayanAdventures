@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 import heroImage from "../../../photos/main1.jpeg";
-import poonHillImage from "../../../photos/main2.jpeg";
+import poonHillImage from "../../../photos/dhaulagiri.jpeg";
 import mardiImage from "../../../photos/main3.jpeg";
-import panchaseImage from "../../../photos/eco.webp";
-import nagarkotImage from "../../../photos/heritage.jpeg";
+import panchaseImage from "../../../photos/Panchase.jpg";
+import nagarkotImage from "../../../photos/nagarkot.jpg";
 
 const treks = [
   {

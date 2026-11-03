@@ -1,8 +1,8 @@
 import heroImage from "../../../photos/main4.jpeg";
-import abcImage from "../../../photos/main2.jpeg";
-import langtangImage from "../../../photos/main5.jpeg";
-import mardiImage from "../../../photos/main3.jpeg";
-import khopraImage from "../../../photos/group.jpeg";
+import abcImage from "../../../photos/annapurna.jpeg";
+import langtangImage from "../../../photos/langtanf.jpg";
+import mardiImage from "../../../photos/mardiss.webp";
+import khopraImage from "../../../photos/khopra.jpeg";
 
 const treks = [
   {

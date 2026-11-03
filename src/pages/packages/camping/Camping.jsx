@@ -1,10 +1,10 @@
 
-import riverImage from "../../../../photos/main1.jpeg";
-import australianImage from "../../../../photos/main2.jpeg";
-import panchaseImage from "../../../../photos/main3.jpeg";
-import nagarkotImage from "../../../../photos/main4.jpeg";
+import riverImage from "../../../../photos/campingsss.png";
+import australianImage from "../../../../photos/ridge.png";
+import panchaseImage from "../../../../photos/Panchase.jpg";
+import nagarkotImage from "../../../../photos/nagarkotcamp.png";
 import campingImage from "../../../../photos/camping.jpeg";
-import forestImage from "../../../../photos/eco.webp";
+import forestImage from "../../../../photos/forestcamp.png";
 
 const categories = [
   {

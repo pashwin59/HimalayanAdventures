@@ -1,9 +1,9 @@
 
-import shivapuriImage from "../../../../photos/main1.jpeg";
-import sarangkotImage from "../../../../photos/main2.jpeg";
-import champadeviImage from "../../../../photos/main3.jpeg";
-import australianCampImage from "../../../../photos/main4.jpeg";
-import nagarkotImage from "../../../../photos/heritage.jpeg";
+import shivapuriImage from "../../../../photos/shivapuri.jpeg";
+import sarangkotImage from "../../../../photos/dhampuss.jpeg";
+import champadeviImage from "../../../../photos/champadevi.webp";
+import australianCampImage from "../../../../photos/australian.jpg";
+import nagarkotImage from "../../../../photos/changu.jpeg";
 
 const categories = [
   {

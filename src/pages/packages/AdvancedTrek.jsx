@@ -1,9 +1,11 @@
 
 import heroImage from "../../../photos/main5.jpeg";
-import everestImage from "../../../photos/main2.jpeg";
-import annapurnaImage from "../../../photos/main3.jpeg";
-import manasluImage from "../../../photos/main4.jpeg";
-import threePassImage from "../../../photos/group.jpeg";
+import everestImage from "../../../photos/everest.jpeg";
+import annapurnaImage from "../../../photos/thoran.jpeg";
+import manasluImage from "../../../photos/manasulus.jpeg";
+import threePassImage from "../../../photos/everestss.jpeg";
+import apiImage from "../../../photos/api.jpeg";
+import phoksundoImage from "../../../photos/shey.png";
 
 const treks = [
   {
@@ -21,6 +23,40 @@ const treks = [
       "Experience sunrise from Kala Patthar",
     ],
   },
+   {
+    name: "Api Himal Base Camp Trek",
+  duration: "14–16 Days",
+  altitude: "4,200 m (Kali Dhunga Lake) / 3,861 m (Api Himal Base Camp)",
+  difficulty: "Challenging / Strenuous",
+  image: apiImage,
+  description:
+    "Explore the remote wilderness of Far-Western Nepal on the spectacular Api Himal Base Camp Trek. Journey through traditional villages, dense forests, alpine meadows and breathtaking Himalayan landscapes while discovering the untouched beauty of the Api Nampa Conservation Area.",
+  highlights: [
+    "Experience breathtaking views of Mt. Api (7,132 m)",
+    "Explore the spectacular Api Himal Base Camp",
+    "Discover the sacred and scenic Kali Dhunga Lake",
+    "Experience traditional village life and local culture in Darchula",
+    "Trek through pristine forests and remote alpine landscapes"
+    ],
+  },
+  {
+  name: "Shey Phoksundo Lake Trek",
+  duration: "10–12 Days",
+  altitude: "3,611 m (Shey Phoksundo Lake)",
+  difficulty: "Moderate / Challenging",
+  image: phoksundoImage,
+  description:
+    "Discover the untouched beauty of the remote Dolpo region on the spectacular Shey Phoksundo Lake Trek. Journey through pristine forests, dramatic mountain landscapes and traditional Tibetan-influenced villages before reaching the breathtaking turquoise waters of Nepal's deepest lake. Experience ancient Bon Buddhist culture and the peaceful wilderness of Shey Phoksundo National Park.",
+  highlights: [
+    "Explore the stunning turquoise waters of Shey Phoksundo Lake",
+    "Witness the spectacular Phoksundo Waterfall",
+    "Discover the traditional Bon Buddhist culture of Ringmo Village",
+    "Visit the ancient Tshowa Gompa monastery",
+    "Trek through the pristine wilderness of Shey Phoksundo National Park",
+    "Experience breathtaking views of the remote Dolpo Himalayas"
+  ],
+},
+
   {
     name: "Annapurna Circuit via Thorong La Pass",
     duration: "12–16 Days",

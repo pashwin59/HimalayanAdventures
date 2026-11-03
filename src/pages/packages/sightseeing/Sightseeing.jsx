@@ -1,9 +1,9 @@
 
-import heritageImage from "../../../../photos/heritage.jpeg";
-import pokharaImage from "../../../../photos/main2.jpeg";
+import heritageImage from "../../../../photos/kathmandu1.jpeg";
+import pokharaImage from "../../../../photos/sarangkot.jpg";
 import chitwanImage from "../../../../photos/eco.webp";
-import lumbiniImage from "../../../../photos/group.jpeg";
-import nagarkotImage from "../../../../photos/main4.jpeg";
+import lumbiniImage from "../../../../photos/Lumbini.jpeg";
+import nagarkotImage from "../../../../photos/bhaktapur.jpeg";
 
 const categories = [
   {
