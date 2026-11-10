@@ -1,4 +1,6 @@
 
+import { Link } from "react-router-dom";
+
 import pokharaImage from "../../../../photos/main1.jpeg";
 import kathmanduImage from "../../../../photos/main2.jpeg";
 import nagarkotImage from "../../../../photos/main3.jpeg";
@@ -14,7 +16,7 @@ const categories = [
     description:
       "Relaxed cycling experiences through lakeside roads, rural farmland, and beautiful cultural valleys.",
     image: pokharaImage,
-    link: "#leisure-tours",
+    link: "leisure-tours",
   },
   {
     name: "Cross-Country & Singletrack",
@@ -23,7 +25,7 @@ const categories = [
     description:
       "Explore technical climbs, forest singletracks, ridge trails, and exciting downhill routes.",
     image: forestImage,
-    link: "#cross-country",
+    link: "cross-country",
   },
   {
     name: "Himalayan MTB Expeditions",
@@ -32,7 +34,7 @@ const categories = [
     description:
       "Multi-day journeys through high mountain passes, alpine valleys, and rugged Himalayan terrain.",
     image: mustangImage,
-    link: "#himalayan-expeditions",
+    link: "himalayan-expeditions",
   },
 ];
 
@@ -45,6 +47,7 @@ const packages = [
     bike: "Hardtail MTB or E-MTB",
     difficulty: "Easy",
     image: pokharaImage,
+    id: "leisure-tours",
     description:
       "Enjoy a relaxing ride along the shore of Phewa Lake into rural Pokhara farmland. This scenic cycling route is ideal for casual cyclists and families.",
     highlights: [
@@ -62,6 +65,7 @@ const packages = [
     bike: "Full-Suspension MTB",
     difficulty: "Technical",
     image: kathmanduImage,
+    id: "cross-country",
     description:
       "A technical mountain biking experience through forest trails and mountain ridges surrounding Kathmandu Valley, designed for active riders.",
     highlights: [
@@ -79,6 +83,7 @@ const packages = [
     bike: "Hardtail MTB or Full-Suspension",
     difficulty: "Intermediate to Advanced",
     image: nagarkotImage,
+    id: "nagarkot-enduro",
     description:
       "Ride along the Nagarkot ridge with spectacular Himalayan views before enjoying an exhilarating downhill journey through pine forests and historic villages.",
     highlights: [
@@ -96,6 +101,7 @@ const packages = [
     bike: "Full-Suspension MTB or E-MTB",
     difficulty: "Advanced",
     image: mustangImage,
+    id: "himalayan-expeditions",
     description:
       "A memorable mountain biking adventure combining dramatic high-desert Himalayan landscapes with flowing downhill dirt trails through the Kali Gandaki region.",
     highlights: [
@@ -113,14 +119,15 @@ const packages = [
     bike: "Lightweight Full-Suspension MTB",
     difficulty: "Advanced / Extreme",
     image: annapurnaImage,
+    id: "annapurna-mtb",
+    description:
+      "The ultimate high-altitude mountain biking adventure. Ride and push your bike across alpine terrain and legendary mountain passes before enjoying spectacular descents.",
     highlights: [
       "Cross the legendary Thorong La Pass",
       "Explore dramatic alpine landscapes",
       "Experience trails towards Muktinath",
       "Discover the Annapurna region",
     ],
-    description:
-      "The ultimate high-altitude mountain biking adventure. Ride and push your bike across alpine terrain and legendary mountain passes before enjoying spectacular descents.",
   },
 ];
 
@@ -148,6 +155,17 @@ const support = [
 ];
 
 function Cycling() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <div className="bg-white">
 
@@ -208,12 +226,13 @@ function Cycling() {
 
             </div>
 
-            <a
-              href="#featured-cycling"
+            <button
+              type="button"
+              onClick={() => scrollToSection("featured-cycling")}
               className="inline-flex items-center gap-4 mt-9 bg-[#263e32] text-white px-8 py-4 hover:bg-[#a58b58] transition w-fit"
             >
               Explore Cycling Routes <span>↗</span>
-            </a>
+            </button>
 
           </div>
 
@@ -331,12 +350,13 @@ function Cycling() {
                       {category.bestFor}
                     </p>
 
-                    <a
-                      href={category.link}
+                    <button
+                      type="button"
+                      onClick={() => scrollToSection(category.link)}
                       className="text-[#263e32] font-semibold text-sm hover:text-amber-700 transition"
                     >
                       View Cycling Packages →
-                    </a>
+                    </button>
 
                   </div>
 
@@ -353,7 +373,10 @@ function Cycling() {
       </section>
 
       {/* FEATURED CYCLING PACKAGES */}
-      <section id="featured-cycling" className="py-20">
+      <section
+        id="featured-cycling"
+        className="py-20 scroll-mt-24"
+      >
 
         <div className="max-w-7xl mx-auto px-6">
 
@@ -379,7 +402,8 @@ function Cycling() {
 
               <article
                 key={item.name}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+                id={item.id}
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 scroll-mt-24"
               >
 
                 <div className="relative h-72 overflow-hidden">
@@ -473,12 +497,12 @@ function Cycling() {
 
                   </ul>
 
-                  <a
-                    href="/#contact"
+                  <Link
+                    to="/contact"
                     className="inline-block border border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white px-6 py-3 rounded-full font-semibold transition"
                   >
                     Enquire Now →
-                  </a>
+                  </Link>
 
                 </div>
 
@@ -493,7 +517,10 @@ function Cycling() {
       </section>
 
       {/* TECHNICAL & SUPPORT */}
-      <section className="bg-gray-50 py-20" id="bike-support">
+      <section
+        className="bg-gray-50 py-20"
+        id="bike-support"
+      >
 
         <div className="max-w-7xl mx-auto px-6">
 
@@ -589,19 +616,19 @@ function Cycling() {
 
           <div className="flex flex-wrap justify-center gap-4">
 
-            <a
-              href="/#contact"
+            <Link
+              to="/contact"
               className="bg-amber-500 hover:bg-amber-600 px-8 py-4 rounded-full font-semibold transition"
             >
               Request Custom Bike Tour
-            </a>
+            </Link>
 
-            <a
-              href="/#contact"
+            <Link
+              to="/contact"
               className="border border-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-full font-semibold transition"
             >
               Chat with Biking Specialist
-            </a>
+            </Link>
 
           </div>
 

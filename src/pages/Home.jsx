@@ -6,7 +6,7 @@ import main3 from "../../photos/main3.jpeg";
 import main4 from "../../photos/main4.jpeg";
 import main5 from "../../photos/main5.jpeg";
 
-import mountain1 from "../../photos/mountain1.jpeg";
+import mountain1 from "../../photos/mardi.jpeg";
 import mountain2 from "../../photos/mountain2.jpeg";
 import mountain3 from "../../photos/mountain3.jpeg";
 import mountain4 from "../../photos/mountain4.jpeg";
@@ -19,6 +19,7 @@ import camping from "../../photos/camping.jpeg";
 import multiday from "../../photos/multidaytrekking.jpeg";
 import birdwatch from "../../photos/birdwatch.jpeg";
 import heritage from "../../photos/heritage.jpeg";
+
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                */
@@ -131,7 +132,7 @@ const popularRoutes = [
 const stats = [
   { value: 100, suffix: "%", title: "Local Guides", detail: "Local knowledge and experiences" },
   { value: 50, suffix: "+", title: "Custom Trails", detail: "Different ways to explore Nepal" },
-  { value: 4.9, suffix: "/5", decimals: 1, title: "Traveller Rating", detail: "Only publish once independently verified" },
+  { value: 4.9, suffix: "/5", decimals: 1, title: "Traveller Rating", detail: " Verified" },
   { text: "IPPG", title: "Porter Care", detail: "Ethical standards and welfare commitment" },
 ];
 

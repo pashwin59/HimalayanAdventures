@@ -1,4 +1,6 @@
 
+import { Link } from "react-router-dom";
+
 import heroImage from "../../../photos/main2.jpeg";
 import shortTrekImage from "../../../photos/hiking.webp";
 import moderateTrekImage from "../../../photos/group.jpeg";
@@ -68,14 +70,24 @@ const reasons = [
 ];
 
 export default function Trek() {
+  // Smooth scrolling to a section
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <main className="bg-white">
 
       {/* HERO SECTION */}
       <section className="bg-[#F5F8F4] py-16 md:py-24 px-6">
+
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
 
           <div>
+
             <p className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold">
               🏔️ Discover the Himalayas
             </p>
@@ -90,14 +102,18 @@ export default function Trek() {
               and start your journey.
             </p>
 
-            <a
-              href="#trek-categories"
+            {/* EXPLORE TREK PACKAGES BUTTON */}
+            <button
+              type="button"
+              onClick={() => scrollToSection("trek-categories")}
               className="inline-block mt-9 bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-full font-semibold transition"
             >
               Explore Trek Packages →
-            </a>
+            </button>
 
+            {/* TREK STATISTICS */}
             <div className="grid grid-cols-3 gap-5 mt-12 pt-8 border-t border-gray-200">
+
               <div>
                 <p className="text-2xl font-bold text-green-800">Short</p>
                 <p className="text-sm text-gray-500 mt-1">1–5 days</p>
@@ -112,36 +128,53 @@ export default function Trek() {
                 <p className="text-2xl font-bold text-green-800">Advanced</p>
                 <p className="text-sm text-gray-500 mt-1">12+ days</p>
               </div>
+
             </div>
+
           </div>
 
+          {/* HERO IMAGE */}
           <div className="relative">
+
             <div className="rounded-[28px] overflow-hidden shadow-2xl">
+
               <img
                 src={heroImage}
                 alt="Himalayan mountains in Nepal"
                 className="w-full h-[380px] md:h-[540px] object-cover"
               />
+
             </div>
 
             <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-xl">
+
               <p className="text-green-700 text-xs uppercase tracking-widest font-bold">
                 Your Himalayan Journey
               </p>
+
               <h3 className="text-gray-900 text-xl font-bold mt-2">
                 Find the Trek That Matches Your Adventure
               </h3>
+
             </div>
+
           </div>
 
         </div>
+
       </section>
 
-      {/* CATEGORY INTRODUCTION */}
-      <section id="trek-categories" className="py-20 px-6">
+
+      {/* TREK CATEGORIES */}
+      <section
+        id="trek-categories"
+        className="py-20 px-6 scroll-mt-24"
+      >
+
         <div className="max-w-7xl mx-auto">
 
           <div className="max-w-3xl mx-auto text-center mb-14">
+
             <p className="text-green-700 uppercase tracking-widest text-sm font-bold">
               Choose Your Adventure
             </p>
@@ -155,18 +188,23 @@ export default function Trek() {
               Choose a trekking experience that suits your time,
               fitness level and appetite for exploration.
             </p>
+
           </div>
 
-          {/* THREE CATEGORY CARDS */}
+
+          {/* TREK CATEGORY CARDS */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             {categories.map((category) => (
+
               <article
                 key={category.number}
                 className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition duration-300"
               >
 
+                {/* CARD IMAGE */}
                 <div className="relative h-[260px] overflow-hidden">
+
                   <img
                     src={category.image}
                     alt={category.title}
@@ -182,11 +220,16 @@ export default function Trek() {
                       {category.duration}
                     </span>
                   </div>
+
                 </div>
 
+
+                {/* CARD CONTENT */}
                 <div className="p-7">
 
-                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${category.color}`}>
+                  <span
+                    className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${category.color}`}
+                  >
                     {category.level}
                   </span>
 
@@ -198,23 +241,30 @@ export default function Trek() {
                     {category.description}
                   </p>
 
-                  <a
-                    href={category.link}
+                  {/* NAVIGATION LINK */}
+                  <Link
+                    to={category.link}
                     className="inline-flex items-center gap-2 mt-7 text-green-800 font-bold hover:text-green-600 transition"
                   >
                     Explore Packages <span>→</span>
-                  </a>
+                  </Link>
 
                 </div>
+
               </article>
+
             ))}
 
           </div>
+
         </div>
+
       </section>
+
 
       {/* WHY TREK WITH US */}
       <section className="bg-[#F5F8F4] py-20 px-6">
+
         <div className="max-w-7xl mx-auto">
 
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -234,14 +284,20 @@ export default function Trek() {
 
           </div>
 
+
+          {/* REASONS */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
 
             {reasons.map((reason) => (
+
               <div
                 key={reason.title}
                 className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition"
               >
-                <div className="text-4xl">{reason.icon}</div>
+
+                <div className="text-4xl">
+                  {reason.icon}
+                </div>
 
                 <h3 className="text-lg font-bold text-gray-900 mt-6">
                   {reason.title}
@@ -250,15 +306,21 @@ export default function Trek() {
                 <p className="text-gray-600 text-sm leading-7 mt-3">
                   {reason.description}
                 </p>
+
               </div>
+
             ))}
 
           </div>
+
         </div>
+
       </section>
+
 
       {/* CUSTOM CONSULTATION CTA */}
       <section className="bg-[#173D32] text-white py-24 px-6">
+
         <div className="max-w-4xl mx-auto text-center">
 
           <p className="text-green-300 uppercase tracking-[4px] text-sm font-semibold">
@@ -275,14 +337,16 @@ export default function Trek() {
             your interests and expectations.
           </p>
 
-          <a
-            href="/#contact"
+          {/* CONSULTATION BUTTON */}
+          <Link
+            to="/plan-your-trek"
             className="inline-block mt-9 bg-green-500 hover:bg-green-600 text-white px-9 py-4 rounded-full font-bold transition"
           >
             Get a Free Custom Consultation →
-          </a>
+          </Link>
 
         </div>
+
       </section>
 
     </main>

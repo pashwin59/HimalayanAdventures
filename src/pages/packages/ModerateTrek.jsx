@@ -1,12 +1,16 @@
+
+import { Link } from "react-router-dom";
+
 import heroImage from "../../../photos/main4.jpeg";
-import abcImage from "../../../photos/annapurna.jpeg";
-import langtangImage from "../../../photos/langtanf.jpg";
-import mardiImage from "../../../photos/mardiss.webp";
-import khopraImage from "../../../photos/khopra.jpeg";
+import abcImage from "../../../photos/main2.jpeg";
+import langtangImage from "../../../photos/main5.jpeg";
+import mardiImage from "../../../photos/main3.jpeg";
+import khopraImage from "../../../photos/group.jpeg";
 
 const treks = [
   {
-    name: "Annapurna Base Camp (ABC) Trek",
+    name: "Annapurna Base Camp Trek",
+    slug: "annapurna-base-camp",
     duration: "7–10 Days",
     altitude: "4,130 m",
     difficulty: "Moderate",
@@ -22,6 +26,7 @@ const treks = [
   },
   {
     name: "Langtang Valley Trek",
+    slug: "langtang-valley",
     duration: "7–8 Days",
     altitude: "3,870 m",
     difficulty: "Moderate",
@@ -37,6 +42,7 @@ const treks = [
   },
   {
     name: "Mardi Himal Full Trek",
+    slug: "mardi-himal-full",
     duration: "6–7 Days",
     altitude: "4,500 m",
     difficulty: "Moderate",
@@ -51,7 +57,8 @@ const treks = [
     ],
   },
   {
-    name: "Khopra Ridge & Khayer Lake",
+    name: "Khopra Ridge & Khayer Lake Trek",
+    slug: "khopra-ridge",
     duration: "8–10 Days",
     altitude: "4,660 m",
     difficulty: "Moderate to Challenging",
@@ -71,95 +78,94 @@ function ModerateTrek() {
   return (
     <main className="bg-white text-gray-900">
 
-      {/* PREMIUM MODERATE TREK HERO */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-12 pt-12 pb-20">
+      {/* PREMIUM EDITORIAL HERO */}
+      <section className="bg-[#f8f7f2]">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-14 md:py-20">
 
-        <div className="flex items-center gap-3 text-xs uppercase tracking-[3px] text-[#95876c] mb-10">
-          <span>Explore Nepal</span>
-          <span className="w-10 h-px bg-[#b5a88d]"></span>
-          <span>Moderate Treks</span>
-        </div>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-        <div className="relative grid lg:grid-cols-[1.15fr_0.85fr] min-h-[510px]">
+            {/* LEFT CONTENT */}
+            <div className="order-2 lg:order-1">
 
-          {/* LEFT IMAGE */}
-          <div className="relative min-h-[330px] lg:min-h-[580px]">
-            <img
-              src={heroImage}
-              alt="Himalayan mountain trekking"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-
-            <div className="absolute bottom-7 left-7 text-white">
-              <p className="uppercase tracking-[3px] text-xs">
-                Beyond the familiar trails
+              <p className="text-xs uppercase tracking-[4px] text-[#a58b58] mb-7">
+                Discover the Himalayas · Nepal
               </p>
-              <p className="font-serif text-3xl mt-2">
-                Find your altitude.
+
+              <h1 className="font-serif text-5xl md:text-7xl leading-[1.1] text-[#263e32]">
+                Go beyond,
+                <span className="block italic text-[#a58b58]">
+                  discover more.
+                </span>
+              </h1>
+
+              <p className="text-[#77786d] text-lg leading-8 mt-8 max-w-lg">
+                Moderate Trekking Packages in Nepal (5–12 Days).
+                Explore breathtaking Himalayan sanctuaries, traditional
+                mountain villages, beautiful valleys and spectacular
+                high-altitude viewpoints.
               </p>
-            </div>
-          </div>
 
-          {/* RIGHT CONTENT */}
-          <div className="bg-[#eae6da] flex flex-col justify-center px-8 md:px-14 py-14 lg:-ml-12 lg:my-14 relative">
+              <div className="flex gap-10 mt-10 border-t border-[#ded9cc] pt-7">
 
-            <p className="text-[#a58b58] text-xs uppercase tracking-[4px] mb-7">
-              The Himalayan collection
-            </p>
+                <div>
+                  <p className="font-serif text-3xl text-[#263e32]">5–12</p>
+                  <p className="text-xs uppercase tracking-wider text-[#898678] mt-2">
+                    Days
+                  </p>
+                </div>
 
-            <h1 className="font-serif text-5xl md:text-6xl leading-[1.1]">
-              Go beyond
-              <span className="block italic text-[#9b8966]">
-                the ordinary.
-              </span>
-            </h1>
+                <div>
+                  <p className="font-serif text-3xl text-[#263e32]">4</p>
+                  <p className="text-xs uppercase tracking-wider text-[#898678] mt-2">
+                    Trek options
+                  </p>
+                </div>
 
-            <p className="text-[#77786d] text-lg leading-8 mt-7">
-              Moderate Trekking Packages in Nepal (5–12 Days).
-              Discover iconic mountain trails, hidden valleys,
-              spectacular sanctuaries and unforgettable Himalayan scenery.
-            </p>
+                <div>
+                  <p className="font-serif text-3xl text-[#263e32]">Nepal</p>
+                  <p className="text-xs uppercase tracking-wider text-[#898678] mt-2">
+                    Himalayas
+                  </p>
+                </div>
 
-            <div className="grid grid-cols-3 gap-4 border-t border-[#d3cbbb] mt-9 pt-7">
-
-              <div>
-                <p className="font-serif text-3xl">5–12</p>
-                <p className="text-[10px] uppercase tracking-wider text-[#898678] mt-2">
-                  Days
-                </p>
               </div>
 
-              <div>
-                <p className="font-serif text-3xl">4</p>
-                <p className="text-[10px] uppercase tracking-wider text-[#898678] mt-2">
-                  Routes
-                </p>
-              </div>
-
-              <div>
-                <p className="font-serif text-3xl">4,660m</p>
-                <p className="text-[10px] uppercase tracking-wider text-[#898678] mt-2">
-                  Highest point
-                </p>
-              </div>
+              <a
+                href="/#contact"
+                className="inline-flex items-center gap-4 mt-10 bg-[#263e32] text-white px-8 py-4 hover:bg-[#a58b58] transition"
+              >
+                Plan Your Moderate Trek <span>↗</span>
+              </a>
 
             </div>
 
-            <a
-              href="/#contact"
-              className="inline-flex items-center gap-4 mt-9 text-sm uppercase tracking-[2px] font-semibold border-b border-[#526b52] pb-2 w-fit hover:text-[#a58b58] transition"
-            >
-              Explore the journeys <span>↗</span>
-            </a>
+            {/* RIGHT IMAGE */}
+            <div className="order-1 lg:order-2 relative">
+
+              <img
+                src={heroImage}
+                alt="Himalayan trekking experience in Nepal"
+                className="w-full h-[350px] md:h-[540px] object-cover"
+              />
+
+              <div className="absolute bottom-5 left-5 bg-[#f8f7f2] px-6 py-4">
+                <p className="text-xs uppercase tracking-[2px] text-[#a58b58]">
+                  Your next adventure
+                </p>
+                <p className="font-serif text-xl text-[#263e32] mt-1">
+                  Into the mountains
+                </p>
+              </div>
+
+            </div>
 
           </div>
         </div>
       </section>
 
-      {/* INTRODUCTION - SAME AS SHORT TREK */}
+      {/* INTRODUCTION */}
       <section className="max-w-7xl mx-auto px-6 py-20">
+
         <div className="max-w-3xl mx-auto text-center">
 
           <p className="text-amber-600 uppercase tracking-[3px] text-sm font-semibold mb-3">
@@ -167,20 +173,22 @@ function ModerateTrek() {
           </p>
 
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Go Beyond the Ordinary Trails
+            Your Himalayan Adventure Starts Here
           </h2>
 
           <p className="text-gray-600 text-lg leading-relaxed">
-            Moderate treks are designed for active hikers with standard
-            physical fitness. Explore classic Himalayan routes, mountain
-            sanctuaries, high valleys and iconic base camps.
+            Moderate treks are perfect for active hikers looking for
+            rewarding multi-day adventures. Explore spectacular mountain
+            viewpoints, traditional villages, alpine landscapes and
+            unforgettable Himalayan trails.
           </p>
 
         </div>
       </section>
 
-      {/* TREK PACKAGES - EXACT SAME CARD DESIGN AS SHORT TREK */}
+      {/* TREK PACKAGES */}
       <section className="bg-gray-50 py-20">
+
         <div className="max-w-7xl mx-auto px-6">
 
           <div className="text-center mb-14">
@@ -194,20 +202,22 @@ function ModerateTrek() {
             </h2>
 
             <p className="text-gray-600 mt-4">
-              Discover Nepal's iconic mountain trails and beautiful valleys.
+              Explore some of Nepal's most beautiful moderate trekking routes.
             </p>
 
           </div>
 
+          {/* TREK CARDS */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-9">
 
             {treks.map((trek) => (
 
               <article
-                key={trek.name}
+                key={trek.slug}
                 className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
               >
 
+                {/* IMAGE */}
                 <div className="relative h-72 overflow-hidden">
 
                   <img
@@ -222,12 +232,14 @@ function ModerateTrek() {
 
                 </div>
 
+                {/* CARD CONTENT */}
                 <div className="p-7">
 
                   <h3 className="text-2xl font-bold mb-4">
                     {trek.name}
                   </h3>
 
+                  {/* ALTITUDE AND LEVEL */}
                   <div className="flex flex-wrap gap-3 mb-5 text-sm">
 
                     <span className="bg-gray-100 px-3 py-2 rounded-lg">
@@ -240,10 +252,12 @@ function ModerateTrek() {
 
                   </div>
 
+                  {/* DESCRIPTION */}
                   <p className="text-gray-600 leading-relaxed mb-6">
                     {trek.description}
                   </p>
 
+                  {/* HIGHLIGHTS */}
                   <h4 className="font-bold mb-3">
                     Highlights
                   </h4>
@@ -256,22 +270,29 @@ function ModerateTrek() {
                         key={highlight}
                         className="flex items-start gap-2 text-gray-600 text-sm"
                       >
-                        <span className="text-amber-500 font-bold">✓</span>
+
+                        <span className="text-amber-500 font-bold">
+                          ✓
+                        </span>
+
                         {highlight}
+
                       </li>
 
                     ))}
 
                   </ul>
 
-                  <a
-                    href="/#contact"
+                  {/* INDIVIDUAL TREK DETAIL PAGE */}
+                  <Link
+                    to={`/packages/trek/moderate-trek/${trek.slug}`}
                     className="inline-block border border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white px-6 py-3 rounded-full font-semibold transition"
                   >
-                    Enquire Now →
-                  </a>
+                    View Trek Details →
+                  </Link>
 
                 </div>
+
               </article>
 
             ))}
@@ -280,7 +301,7 @@ function ModerateTrek() {
         </div>
       </section>
 
-      {/* CTA - SAME AS SHORT TREK */}
+      {/* CTA */}
       <section className="bg-slate-900 text-white py-20">
 
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -290,31 +311,32 @@ function ModerateTrek() {
           </p>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Ready for a Bigger Himalayan Adventure?
+            Ready for Your Next Himalayan Adventure?
           </h2>
 
           <p className="text-gray-300 text-lg mb-9 leading-relaxed">
-            Discover Nepal's remarkable mountain trails. Contact us to
-            plan your next moderate trekking adventure.
+            Choose your preferred moderate trek and let us help you
+            plan an unforgettable journey through the Himalayas.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
 
             <a
-              href="/#contact"
+              href="/plan-your-trek"
               className="bg-amber-500 hover:bg-amber-600 px-8 py-4 rounded-full font-semibold transition"
             >
-              Book a Moderate Trek
+              Plan Your Moderate Trek
             </a>
 
             <a
-              href="/#contact"
+              href="/contact"
               className="border border-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-full font-semibold transition"
             >
               Contact Us
             </a>
 
           </div>
+
         </div>
       </section>
 

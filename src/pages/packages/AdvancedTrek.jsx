@@ -1,4 +1,6 @@
 
+import { Link } from "react-router-dom";
+
 import heroImage from "../../../photos/main5.jpeg";
 import everestImage from "../../../photos/everest.jpeg";
 import annapurnaImage from "../../../photos/thoran.jpeg";
@@ -10,7 +12,8 @@ import phoksundoImage from "../../../photos/shey.png";
 const treks = [
   {
     name: "Everest Base Camp & Cho La Pass Trek",
-    duration: "14–16 Days",
+    slug: "everest-base-camp-cho-la-pass",
+    duration: "16–18 Days",
     altitude: "5,545 m (Kala Patthar) / 5,420 m (Cho La Pass)",
     difficulty: "Strenuous / Advanced",
     image: everestImage,
@@ -23,43 +26,48 @@ const treks = [
       "Experience sunrise from Kala Patthar",
     ],
   },
-   {
+
+  {
     name: "Api Himal Base Camp Trek",
-  duration: "14–16 Days",
-  altitude: "4,200 m (Kali Dhunga Lake) / 3,861 m (Api Himal Base Camp)",
-  difficulty: "Challenging / Strenuous",
-  image: apiImage,
-  description:
-    "Explore the remote wilderness of Far-Western Nepal on the spectacular Api Himal Base Camp Trek. Journey through traditional villages, dense forests, alpine meadows and breathtaking Himalayan landscapes while discovering the untouched beauty of the Api Nampa Conservation Area.",
-  highlights: [
-    "Experience breathtaking views of Mt. Api (7,132 m)",
-    "Explore the spectacular Api Himal Base Camp",
-    "Discover the sacred and scenic Kali Dhunga Lake",
-    "Experience traditional village life and local culture in Darchula",
-    "Trek through pristine forests and remote alpine landscapes"
+    slug: "api-himal-base-camp",
+    duration: "16–18 Days",
+    altitude: "4,200 m (Kali Dhunga Lake) / 3,861 m (Api Himal Base Camp)",
+    difficulty: "Challenging / Strenuous",
+    image: apiImage,
+    description:
+      "Explore the remote wilderness of Far-Western Nepal on the spectacular Api Himal Base Camp Trek. Journey through traditional villages, dense forests, alpine meadows and breathtaking Himalayan landscapes while discovering the untouched beauty of the Api Nampa Conservation Area.",
+    highlights: [
+      "Experience breathtaking views of Mt. Api (7,132 m)",
+      "Explore the spectacular Api Himal Base Camp",
+      "Discover the sacred and scenic Kali Dhunga Lake",
+      "Experience traditional village life and local culture in Darchula",
+      "Trek through pristine forests and remote alpine landscapes",
     ],
   },
+
   {
-  name: "Shey Phoksundo Lake Trek",
-  duration: "10–12 Days",
-  altitude: "3,611 m (Shey Phoksundo Lake)",
-  difficulty: "Moderate / Challenging",
-  image: phoksundoImage,
-  description:
-    "Discover the untouched beauty of the remote Dolpo region on the spectacular Shey Phoksundo Lake Trek. Journey through pristine forests, dramatic mountain landscapes and traditional Tibetan-influenced villages before reaching the breathtaking turquoise waters of Nepal's deepest lake. Experience ancient Bon Buddhist culture and the peaceful wilderness of Shey Phoksundo National Park.",
-  highlights: [
-    "Explore the stunning turquoise waters of Shey Phoksundo Lake",
-    "Witness the spectacular Phoksundo Waterfall",
-    "Discover the traditional Bon Buddhist culture of Ringmo Village",
-    "Visit the ancient Tshowa Gompa monastery",
-    "Trek through the pristine wilderness of Shey Phoksundo National Park",
-    "Experience breathtaking views of the remote Dolpo Himalayas"
-  ],
-},
+    name: "Shey Phoksundo Lake Trek",
+    slug: "shey-phoksundo-lake",
+    duration: "15–17 Days",
+    altitude: "3,611 m (Shey Phoksundo Lake)",
+    difficulty: "Challenging / Remote",
+    image: phoksundoImage,
+    description:
+      "Discover the untouched beauty of the remote Dolpo region on the spectacular Shey Phoksundo Lake Trek. Journey through pristine forests, dramatic mountain landscapes and traditional Tibetan-influenced villages before reaching the breathtaking turquoise waters of Nepal's deepest lake. Experience ancient Bon Buddhist culture and the peaceful wilderness of Shey Phoksundo National Park.",
+    highlights: [
+      "Explore the stunning turquoise waters of Shey Phoksundo Lake",
+      "Witness the spectacular Phoksundo Waterfall",
+      "Discover the traditional Bon Buddhist culture of Ringmo Village",
+      "Visit the ancient Tshowa Gompa monastery",
+      "Trek through the pristine wilderness of Shey Phoksundo National Park",
+      "Experience breathtaking views of the remote Dolpo Himalayas",
+    ],
+  },
 
   {
     name: "Annapurna Circuit via Thorong La Pass",
-    duration: "12–16 Days",
+    slug: "annapurna-circuit-thorong-la",
+    duration: "15–18 Days",
     altitude: "5,416 m (Thorong La Pass)",
     difficulty: "Strenuous / Advanced",
     image: annapurnaImage,
@@ -72,9 +80,11 @@ const treks = [
       "Experience diverse Himalayan cultures",
     ],
   },
+
   {
     name: "Manaslu Circuit Trek",
-    duration: "13–15 Days",
+    slug: "manaslu-circuit",
+    duration: "15–17 Days",
     altitude: "5,106 m (Larkya La Pass)",
     difficulty: "Strenuous / Advanced",
     image: manasluImage,
@@ -87,8 +97,10 @@ const treks = [
       "Discover less-travelled Himalayan trails",
     ],
   },
+
   {
     name: "Everest Three Passes Trek",
+    slug: "everest-three-passes",
     duration: "18–20 Days",
     altitude: "5,535 m (Kongma La Pass)",
     difficulty: "Extreme / Challenging",
@@ -145,7 +157,7 @@ function AdvancedTrek() {
 
               <div>
                 <p className="font-serif text-3xl text-[#d2b477]">
-                  12–20
+                  15–20
                 </p>
                 <p className="text-xs uppercase tracking-wider text-gray-300 mt-2">
                   Days
@@ -154,7 +166,7 @@ function AdvancedTrek() {
 
               <div>
                 <p className="font-serif text-3xl text-[#d2b477]">
-                  04
+                  06
                 </p>
                 <p className="text-xs uppercase tracking-wider text-gray-300 mt-2">
                   Routes
@@ -225,7 +237,6 @@ function AdvancedTrek() {
           </p>
 
         </div>
-
       </section>
 
       {/* TREK PACKAGES */}
@@ -249,15 +260,17 @@ function AdvancedTrek() {
 
           </div>
 
+          {/* TREK CARDS */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-9">
 
             {treks.map((trek) => (
 
               <article
-                key={trek.name}
+                key={trek.slug}
                 className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
               >
 
+                {/* IMAGE */}
                 <div className="relative h-72 overflow-hidden">
 
                   <img
@@ -272,6 +285,7 @@ function AdvancedTrek() {
 
                 </div>
 
+                {/* CARD CONTENT */}
                 <div className="p-7">
 
                   <h3 className="text-2xl font-bold mb-4">
@@ -306,23 +320,26 @@ function AdvancedTrek() {
                         key={highlight}
                         className="flex items-start gap-2 text-gray-600 text-sm"
                       >
+
                         <span className="text-amber-500 font-bold">
                           ✓
                         </span>
 
                         {highlight}
+
                       </li>
 
                     ))}
 
                   </ul>
 
-                  <a
-                    href="/#contact"
+                  {/* INDIVIDUAL TREK DETAIL PAGE */}
+                  <Link
+                    to={`/packages/trek/advanced-trek/${trek.slug}`}
                     className="inline-block border border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white px-6 py-3 rounded-full font-semibold transition"
                   >
-                    Enquire Now →
-                  </a>
+                    View Trek Details →
+                  </Link>
 
                 </div>
 
@@ -333,7 +350,6 @@ function AdvancedTrek() {
           </div>
 
         </div>
-
       </section>
 
       {/* CTA */}
@@ -374,7 +390,6 @@ function AdvancedTrek() {
           </div>
 
         </div>
-
       </section>
 
     </div>

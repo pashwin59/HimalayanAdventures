@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import heritageImage from "../../../../photos/kathmandu1.jpeg";
 import pokharaImage from "../../../../photos/sarangkot.jpg";
 import chitwanImage from "../../../../photos/eco.webp";
@@ -144,6 +144,17 @@ const inclusions = [
 ];
 
 function Sightseeing() {
+  // Replace with your actual WhatsApp number.
+  // Include country code without + or spaces.
+  const whatsappNumber = "97798XXXXXXXX";
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className="bg-white">
 
@@ -204,12 +215,13 @@ function Sightseeing() {
 
             </div>
 
-            <a
-              href="#featured-tours"
+            <button
+              type="button"
+              onClick={() => scrollToSection("featured-tours")}
               className="inline-flex items-center gap-4 mt-9 bg-[#263e32] text-white px-8 py-4 hover:bg-[#a58b58] transition w-fit"
             >
               Explore Sightseeing Tours <span>↗</span>
-            </a>
+            </button>
 
           </div>
 
@@ -318,12 +330,13 @@ function Sightseeing() {
                     {category.bestFor}
                   </p>
 
-                  <a
-                    href={category.link}
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection(category.link.replace("#", ""))}
                     className="inline-flex items-center gap-2 text-[#263e32] font-semibold hover:text-amber-700 transition"
                   >
                     View Packages →
-                  </a>
+                  </button>
 
                 </div>
 
@@ -338,7 +351,10 @@ function Sightseeing() {
       </section>
 
       {/* FEATURED SIGHTSEEING TOURS */}
-      <section id="featured-tours" className="py-20">
+      <section
+        id="featured-tours"
+        className="py-20 scroll-mt-24"
+      >
 
         <div className="max-w-7xl mx-auto px-6">
 
@@ -418,12 +434,12 @@ function Sightseeing() {
 
                   </ul>
 
-                  <a
-                    href="/#contact"
+                  <Link
+                    to="/contact"
                     className="inline-block border border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white px-6 py-3 rounded-full font-semibold transition"
                   >
                     Enquire Now →
-                  </a>
+                  </Link>
 
                 </div>
 
@@ -510,15 +526,17 @@ function Sightseeing() {
 
           <div className="flex flex-wrap justify-center gap-4">
 
-            <a
-              href="/#contact"
+            <Link
+              to="/contact"
               className="bg-amber-500 hover:bg-amber-600 px-8 py-4 rounded-full font-semibold transition"
             >
               Request Custom Sightseeing Tour
-            </a>
+            </Link>
 
             <a
-              href="/#contact"
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-full font-semibold transition"
             >
               Chat on WhatsApp

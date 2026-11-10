@@ -1,3 +1,4 @@
+import TrekDetail from "./components/TrekDetail";
 import PlanYourTrek from "./pages/PlanYourTrek";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -17,12 +18,16 @@ import Services from "./components/Services";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
+      <ScrollToTop />
+
       <Navbar />
 
       <Routes>
@@ -58,8 +63,25 @@ function App() {
         <Route path="/packages/hiking" element={<Hiking />} />
         <Route path="/packages/cycling" element={<Cycling />} />
         <Route path="/packages/camping" element={<Camping />} />
-        <Route path="/plan-your-trek" element={<PlanYourTrek />} />
-        
+
+        {/* Plan Your Trek */}
+        <Route
+          path="/plan-your-trek"
+          element={<PlanYourTrek />}
+        />
+        <Route
+  path="/packages/trek/short-trek/:slug"
+  element={<TrekDetail />}
+/>
+{/* MODERATE TREK DETAIL PAGES */}
+<Route
+  path="/packages/trek/moderate-trek/:slug"
+  element={<TrekDetail />}
+/>
+<Route
+  path="/packages/trek/advanced-trek/:slug"
+  element={<TrekDetail />}
+/>
       </Routes>
 
       <Footer />

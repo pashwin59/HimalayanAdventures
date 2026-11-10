@@ -1,10 +1,10 @@
-
 import riverImage from "../../../../photos/campingsss.png";
 import australianImage from "../../../../photos/ridge.png";
 import panchaseImage from "../../../../photos/Panchase.jpg";
 import nagarkotImage from "../../../../photos/nagarkotcamp.png";
 import campingImage from "../../../../photos/camping.jpeg";
 import forestImage from "../../../../photos/forestcamp.png";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
@@ -39,6 +39,7 @@ const categories = [
 const packages = [
   {
     name: "Trishuli Riverbank Camping & Adventure",
+    id: "riverside-leisure-camping",
     duration: "2 Days / 1 Night",
     category: "Riverside & Leisure Camping",
     setting: "Sandy river beach along the Trishuli River",
@@ -55,6 +56,7 @@ const packages = [
   },
   {
     name: "Australian Camp Sunset & Stargazing Stay",
+    id: "ridge-stargazing-camps",
     duration: "2 Days / 1 Night",
     category: "Ridge & Stargazing Camps",
     setting: "High ridge viewpoint at 2,060 m",
@@ -71,6 +73,7 @@ const packages = [
   },
   {
     name: "Panchase Wild Forest & Ridge Camping",
+    id: "wild-wilderness-camping",
     duration: "3 Days / 2 Nights",
     category: "Wild Wilderness & Eco Camping",
     setting: "Remote hilltop meadows and rhododendron forests at 2,500 m",
@@ -87,6 +90,7 @@ const packages = [
   },
   {
     name: "Nagarkot Hilltop Stargazing & Camping",
+    id: "nagarkot-hilltop-camping",
     duration: "2 Days / 1 Night",
     category: "Ridge & Stargazing Camps",
     setting: "Kathmandu Valley rim ridge at 2,175 m",
@@ -368,13 +372,7 @@ function Camping() {
 
               <article
                 key={item.name}
-                id={
-                  item.category === "Riverside & Leisure Camping"
-                    ? "riverside-leisure-camping"
-                    : item.category === "Ridge & Stargazing Camps"
-                      ? "ridge-stargazing-camps"
-                      : "wild-wilderness-camping"
-                }
+                id={item.id}
                 className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
               >
 
@@ -450,12 +448,12 @@ function Camping() {
 
                   </ul>
 
-                  <a
-                    href="/#contact"
+                  <Link
+                    to="/contact"
                     className="inline-block border border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white px-6 py-3 rounded-full font-semibold transition"
                   >
                     Enquire Now →
-                  </a>
+                  </Link>
 
                 </div>
 
@@ -558,19 +556,19 @@ function Camping() {
 
           <div className="flex flex-wrap justify-center gap-4">
 
-            <a
-              href="/#contact"
+            <Link
+              to="/contact"
               className="bg-amber-500 hover:bg-amber-600 px-8 py-4 rounded-full font-semibold transition"
             >
               Book a Camping Trip
-            </a>
+            </Link>
 
-            <a
-              href="/#contact"
+            <Link
+              to="/contact"
               className="border border-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-full font-semibold transition"
             >
               Chat with Camp Organizer
-            </a>
+            </Link>
 
           </div>
 

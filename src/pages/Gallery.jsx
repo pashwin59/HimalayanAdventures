@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import mountain1 from "../../photos/mountain1.jpeg";
 import mountain2 from "../../photos/mountain2.jpeg";
@@ -267,35 +268,31 @@ function Gallery() {
 
       </section>
 
-      {/* CLOSING SECTION */}
-      <section className="bg-[#eae6da] py-20">
+{/* CLOSING SECTION */}
+<section className="bg-[#eae6da] py-20">
 
-        <div className="max-w-4xl mx-auto px-6 text-center">
+  <div className="max-w-4xl mx-auto px-6 text-center">
 
-          <p className="text-[#a58b58] uppercase tracking-[3px] text-xs mb-4">
-            Your Story Starts Here
-          </p>
+    <Link
+      to="/plan-your-journey"
+      className="text-[#a58b58] uppercase tracking-[3px] text-xs mb-4 inline-block hover:text-[#263e32] transition cursor-pointer"
+    >
+      Plan Your Journey
+    </Link>
 
-          <h2 className="font-serif text-4xl md:text-5xl text-[#263e32] mb-6">
-            Every Journey Has a Story.
-          </h2>
+    <h2 className="font-serif text-4xl md:text-5xl text-[#263e32] mb-6">
+      Every Journey Has a Story.
+    </h2>
 
-          <p className="text-gray-600 leading-8 max-w-2xl mx-auto mb-9">
-            Come explore the mountains, discover hidden trails, and
-            create memories of your own. Your next Nepal adventure
-            could be just around the corner.
-          </p>
+    <p className="text-gray-600 leading-8 max-w-2xl mx-auto mb-9">
+      Come explore the mountains, discover hidden trails, and
+      create memories of your own. Your next Nepal adventure
+      could be just around the corner.
+    </p>
 
-          <a
-            href="/#contact"
-            className="inline-block bg-[#263e32] text-white px-8 py-4 hover:bg-[#a58b58] transition"
-          >
-            Plan Your Journey ↗
-          </a>
+  </div>
 
-        </div>
-
-      </section>
+</section>
 
       {/* IMAGE LIGHTBOX */}
       {selectedImage && (

@@ -1,4 +1,6 @@
 
+import { Link } from "react-router-dom";
+
 import shivapuriImage from "../../../../photos/shivapuri.jpeg";
 import sarangkotImage from "../../../../photos/dhampuss.jpeg";
 import champadeviImage from "../../../../photos/champadevi.webp";
@@ -149,6 +151,17 @@ const inclusions = [
 ];
 
 function Hiking() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <div className="bg-white">
 
@@ -210,12 +223,13 @@ function Hiking() {
 
             </div>
 
-            <a
-              href="#featured-hikes"
+            <button
+              type="button"
+              onClick={() => scrollToSection("featured-hikes")}
               className="inline-flex items-center gap-4 mt-9 bg-[#263e32] text-white px-8 py-4 hover:bg-[#a58b58] transition w-fit"
             >
               Explore Hiking Trails <span>↗</span>
-            </a>
+            </button>
 
           </div>
 
@@ -324,12 +338,15 @@ function Hiking() {
                     {category.bestFor}
                   </p>
 
-                  <a
-                    href={category.link}
+                  <button
+                    type="button"
+                    onClick={() =>
+                      scrollToSection(category.link.replace("#", ""))
+                    }
                     className="inline-flex items-center gap-2 text-[#263e32] font-semibold hover:text-amber-700 transition"
                   >
                     View Hiking Packages →
-                  </a>
+                  </button>
 
                 </div>
 
@@ -344,7 +361,10 @@ function Hiking() {
       </section>
 
       {/* FEATURED HIKING PACKAGES */}
-      <section id="featured-hikes" className="py-20">
+      <section
+        id="featured-hikes"
+        className="py-20 scroll-mt-24"
+      >
 
         <div className="max-w-7xl mx-auto px-6">
 
@@ -433,12 +453,12 @@ function Hiking() {
 
                   </ul>
 
-                  <a
-                    href="/#contact"
+                  <Link
+                    to="/contact"
                     className="inline-block border border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white px-6 py-3 rounded-full font-semibold transition"
                   >
                     Enquire Now →
-                  </a>
+                  </Link>
 
                 </div>
 
@@ -525,19 +545,19 @@ function Hiking() {
 
           <div className="flex flex-wrap justify-center gap-4">
 
-            <a
-              href="/#contact"
+            <Link
+              to="/contact"
               className="bg-amber-500 hover:bg-amber-600 px-8 py-4 rounded-full font-semibold transition"
             >
               Request Custom Hike
-            </a>
+            </Link>
 
-            <a
-              href="/#contact"
+            <Link
+              to="/contact"
               className="border border-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-full font-semibold transition"
             >
-              Chat on WhatsApp
-            </a>
+              Contact Us
+            </Link>
 
           </div>
 
