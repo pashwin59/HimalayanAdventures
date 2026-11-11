@@ -1,5 +1,5 @@
 
-import serviceHeroImage from "../../photos/main3.jpeg";
+import serviceHeroImage from "../../photos/services.jpg";
 
 import trekkingImage from "../../photos/group.jpeg";
 import hikingImage from "../../photos/hiking.webp";
@@ -10,6 +10,8 @@ import campingImage from "../../photos/camping.jpeg";
 import heritageImage from "../../photos/heritage.jpeg";
 import extensionsImage from "../../photos/extensions.jpeg";
 import helicopterImage from "../../photos/heli.jpeg";
+import heritageImages from "../../photos/discover.avif";
+
 
 const services = [
   {
@@ -89,7 +91,7 @@ const services = [
     title: "Sightseeing & Cultural Tours",
     description:
       "Experience Nepal beyond its mountains through history, culture and local traditions.",
-    image: heritageImage,
+    image: heritageImages,
     imageAlt: "Nepalese cultural heritage",
     items: [
       {

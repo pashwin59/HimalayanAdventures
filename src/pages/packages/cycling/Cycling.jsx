@@ -1,12 +1,15 @@
 
 import { Link } from "react-router-dom";
 
-import pokharaImage from "../../../../photos/main1.jpeg";
-import kathmanduImage from "../../../../photos/main2.jpeg";
-import nagarkotImage from "../../../../photos/main3.jpeg";
-import mustangImage from "../../../../photos/main4.jpeg";
-import annapurnaImage from "../../../../photos/main5.jpeg";
-import forestImage from "../../../../photos/group.jpeg";
+import pokharaImage from "../../../../photos/cycler.png";
+import kathmanduImage from "../../../../photos/ktmvalley.jpg";
+import nagarkotImage from "../../../../photos/enduro.jpg";
+import mustangImage from "../../../../photos/himalayan.jpg";
+import annapurnaImage from "../../../../photos/mtb.jpg";
+import forestImage from "../../../../photos/cross.jpg";
+import pokharalake from "../../../../photos/pokharalake.jpg";
+import leisure from "../../../../photos/leisure.jpg";
+
 
 const categories = [
   {
@@ -15,7 +18,7 @@ const categories = [
     bestFor: "Families, casual riders, and city explorers",
     description:
       "Relaxed cycling experiences through lakeside roads, rural farmland, and beautiful cultural valleys.",
-    image: pokharaImage,
+    image: leisure,
     link: "leisure-tours",
   },
   {
@@ -46,7 +49,7 @@ const packages = [
     terrain: "Flat asphalt & easy dirt jeep track",
     bike: "Hardtail MTB or E-MTB",
     difficulty: "Easy",
-    image: pokharaImage,
+    image: pokharalake,
     id: "leisure-tours",
     description:
       "Enjoy a relaxing ride along the shore of Phewa Lake into rural Pokhara farmland. This scenic cycling route is ideal for casual cyclists and families.",

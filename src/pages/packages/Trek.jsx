@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import heroImage from "../../../photos/main2.jpeg";
 import shortTrekImage from "../../../photos/hiking.webp";
-import moderateTrekImage from "../../../photos/group.jpeg";
-import advancedTrekImage from "../../../photos/main3.jpeg";
+import moderateTrekImage from "../../../photos/moderatetreks.jpg";
+import advancedTrekImage from "../../../photos/advancedd.jpg";
 
 const categories = [
   {
@@ -146,18 +146,7 @@ export default function Trek() {
 
             </div>
 
-            <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-xl">
-
-              <p className="text-green-700 text-xs uppercase tracking-widest font-bold">
-                Your Himalayan Journey
-              </p>
-
-              <h3 className="text-gray-900 text-xl font-bold mt-2">
-                Find the Trek That Matches Your Adventure
-              </h3>
-
-            </div>
-
+            
           </div>
 
         </div>

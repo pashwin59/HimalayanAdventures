@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-import main1 from "../../photos/main1.jpeg";
-import main2 from "../../photos/main2.jpeg";
-import main3 from "../../photos/main3.jpeg";
-import main4 from "../../photos/main4.jpeg";
-import main5 from "../../photos/main5.jpeg";
+import main1 from "../../photos/new.jpg";
+import main2 from "../../photos/new2.jpg";
+import main3 from "../../photos/new3.jpg";
+import main4 from "../../photos/new4.jpg";
+import main5 from "../../photos/news5.jpg";
 
-import mountain1 from "../../photos/mardi.jpeg";
+import mountain1 from "../../photos/mardinew.jpg";
 import mountain2 from "../../photos/mountain2.jpeg";
 import mountain3 from "../../photos/mountain3.jpeg";
 import mountain4 from "../../photos/mountain4.jpeg";
@@ -14,11 +14,11 @@ import mountain5 from "../../photos/mountain5.jpeg";
 
 import sunrise from "../../photos/sunrise.jpeg";
 import sunset from "../../photos/sunset.jpeg";
-import trektrail from "../../photos/trektrail.jpeg";
+import trektrail from "../../photos/highaltitude.jpg";
 import camping from "../../photos/camping.jpeg";
 import multiday from "../../photos/multidaytrekking.jpeg";
-import birdwatch from "../../photos/birdwatch.jpeg";
-import heritage from "../../photos/heritage.jpeg";
+import birdwatch from "../../photos/disco.png";
+import heritage from "../../photos/hari.jpg";
 
 
 /* ------------------------------------------------------------------ */
@@ -440,64 +440,78 @@ export default function Home() {
       `}</style>
 
       {/* 01. HERO — full-bleed slideshow */}
-      <section className="relative min-h-[92vh] overflow-hidden bg-[#0f2a20] text-white">
+      <section className="relative overflow-hidden bg-[#153b30] text-white md:min-h-[92vh] md:bg-[#0f2a20]">
         {heroSlides.map((item, index) => (
           <img
             key={item.src}
             src={item.src}
             alt={index === slide ? item.alt : ""}
             aria-hidden={index !== slide}
-            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[1400ms] ${
+            className={`absolute inset-x-0 top-0 h-[42svh] w-full object-cover object-center transition-opacity duration-[1400ms] md:inset-0 md:h-full ${
               index === slide ? "opacity-100" : "opacity-0"
             }`}
           />
         ))}
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0b221a]/75 via-[#0b221a]/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b221a]/60 via-transparent to-transparent" />
+        {/* Keep the mobile photograph clear; use the original desktop overlays. */}
+        <div className="absolute inset-x-0 top-0 h-[42svh] bg-gradient-to-b from-black/10 via-transparent to-[#153b30]/25 md:inset-0 md:h-full md:bg-gradient-to-r md:from-[#0b221a]/75 md:via-[#0b221a]/30 md:to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-[42svh] bg-transparent md:inset-0 md:h-full md:bg-gradient-to-t md:from-[#0b221a]/60 md:via-transparent md:to-transparent" />
 
-        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-5 pb-40 pt-28 md:px-10">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold backdrop-blur-md">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-start px-5 pb-32 pt-[44svh] md:min-h-[92vh] md:justify-center md:px-10 md:pb-40 md:pt-28">
+          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2.5 text-xs font-semibold backdrop-blur-md sm:px-5 sm:py-3 sm:text-sm">
             <span className="h-2 w-2 animate-pulse rounded-full bg-[#4ade80]" />
             🏔️ Explore Nepal With Us
           </span>
 
-          <h1 className="mt-8 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
-            Touch the Himalayan Sky.{" "}
-            <span className="bg-gradient-to-r from-[#86efac] to-[#fde68a] bg-clip-text text-transparent">
-              Experience Nepal Unfiltered.
+          <h1 className="mt-6 max-w-3xl text-[2.35rem] font-bold leading-[1.08] tracking-tight sm:mt-8 sm:text-6xl lg:text-7xl">
+            <span className="md:hidden">
+              Your Himalayan Adventure{" "}
+              <span className="bg-gradient-to-r from-[#86efac] to-[#fde68a] bg-clip-text text-transparent">
+                Starts Here.
+              </span>
+            </span>
+            <span className="hidden md:inline">
+              Touch the Himalayan Sky.{' '}
+              <span className="bg-gradient-to-r from-[#86efac] to-[#fde68a] bg-clip-text text-transparent">
+                Experience Nepal Unfiltered.
+              </span>
             </span>
           </h1>
 
-          <p className="mt-7 max-w-xl text-base leading-8 text-white/80 md:text-xl md:leading-9">
-            Tailor-made treks, high-ridge camping, wild singletrack cycling and
-            cultural journeys — guided by local experts with safety and heart
-            at every step.
+          <p className="mt-5 max-w-xl text-[15px] leading-7 text-white/90 sm:mt-7 sm:text-lg sm:leading-8 md:text-xl md:leading-9 md:text-white/80">
+            <span className="md:hidden">
+              Trek, camp, cycle and discover Nepal with experienced local guides.
+            </span>
+            <span className="hidden md:inline">
+              Tailor-made treks, high-ridge camping, wild singletrack cycling and
+              cultural journeys — guided by local experts with safety and heart
+              at every step.
+            </span>
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-7 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <a
               href="#trip-finder"
-              className="rounded-full bg-[#00a34a] px-8 py-4 font-semibold text-white shadow-lg shadow-[#00a34a]/30 transition hover:-translate-y-0.5 hover:bg-[#00883e]"
+              className="flex w-full max-w-[320px] items-center justify-center rounded-full bg-[#00a34a] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-[#00a34a]/30 transition hover:-translate-y-0.5 hover:bg-[#00883e] sm:w-auto sm:px-8 sm:text-base"
             >
               Explore Adventures →
             </a>
             <a
               href="/contact"
-              className="rounded-full border border-white/40 bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur-md transition hover:bg-white hover:text-[#194536]"
+              className="hidden rounded-full border border-white/40 bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur-md transition hover:bg-white hover:text-[#194536] sm:inline-flex"
             >
               Talk to Our Team
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-white/75">
+          <div className="mt-7 flex max-w-xl flex-wrap gap-x-4 gap-y-2 text-[11px] text-white/90 sm:mt-10 sm:gap-x-7 sm:text-sm">
             <span>✓ Local Experiences</span>
             <span>✓ Custom Itineraries</span>
             <span>✓ Multiple Adventures</span>
           </div>
         </div>
 
-        {/* Floating highlight card */}
+        {/* Floating highlight card — unchanged on desktop */}
         <div className="floaty absolute bottom-40 right-10 hidden w-72 rounded-2xl border border-white/20 bg-white/15 p-5 backdrop-blur-xl lg:block">
           <p className="text-xs font-semibold uppercase tracking-widest text-[#bbf7d0]">
             Your next adventure
@@ -507,13 +521,14 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Slide dots */}
-        <div className="absolute bottom-32 left-1/2 flex -translate-x-1/2 gap-2 md:left-10 md:translate-x-0 lg:left-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))]">
+        {/* Slide dots sit over the image on mobile */}
+        <div className="absolute left-1/2 top-[39svh] flex -translate-x-1/2 gap-2 md:bottom-32 md:left-10 md:top-auto md:translate-x-0 lg:left-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))]">
           {heroSlides.map((item, index) => (
             <button
               key={item.src}
               onClick={() => setSlide(index)}
               aria-label={`Show slide ${index + 1}`}
+              aria-current={index === slide ? "true" : undefined}
               className={`h-1.5 rounded-full transition-all ${
                 index === slide ? "w-10 bg-white" : "w-4 bg-white/40 hover:bg-white/70"
               }`}
@@ -521,7 +536,7 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Scroll cue */}
+        {/* Scroll cue — desktop only */}
         <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 md:block" aria-hidden="true">
           <div className="flex h-10 w-6 justify-center rounded-full border-2 border-white/50 pt-2">
             <span className="scrollcue h-2 w-1 rounded-full bg-white" />

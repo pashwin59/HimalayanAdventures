@@ -1,12 +1,12 @@
 
-import main4 from "../../photos/main4.jpeg";
-import mountain1 from "../../photos/mountain1.jpeg";
+import main4 from "../../photos/discovers.avif";
+import mountain1 from "../../photos/mou1.avif";
 import mountain2 from "../../photos/mountain2.jpeg";
 import mountain3 from "../../photos/mountain3.jpeg";
 import mountain4 from "../../photos/mountain4.jpeg";
-import sunrise from "../../photos/sunrise.jpeg";
+import sunrise from "../../photos/sunriseimage.jpg";
 import sunset from "../../photos/sunset.jpeg";
-import trektrail from "../../photos/trektrail.jpeg";
+import trektrail from "../../photos/himalayantrekking.avif";
 import group from "../../photos/group.jpeg";
 
 const features = [

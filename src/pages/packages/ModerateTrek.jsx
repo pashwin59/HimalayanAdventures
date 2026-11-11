@@ -2,10 +2,10 @@
 import { Link } from "react-router-dom";
 
 import heroImage from "../../../photos/main4.jpeg";
-import abcImage from "../../../photos/main2.jpeg";
-import langtangImage from "../../../photos/main5.jpeg";
-import mardiImage from "../../../photos/main3.jpeg";
-import khopraImage from "../../../photos/group.jpeg";
+import abcImage from "../../../photos/images.jpeg";
+import langtangImage from "../../../photos/kyangin.jpg";
+import mardiImage from "../../../photos/newss.avif";
+import khopraImage from "../../../photos/khayers.jpg";
 
 const treks = [
   {
