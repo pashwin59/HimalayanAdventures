@@ -1,3 +1,4 @@
+import Blog from "./pages/Blog";
 import TrekDetail from "./components/TrekDetail";
 import PlanYourTrek from "./pages/PlanYourTrek";
 import Home from "./pages/Home";
@@ -39,6 +40,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
 
         {/* Trekking Packages */}
         <Route path="/packages/trek" element={<Trek />} />

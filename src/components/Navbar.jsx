@@ -20,8 +20,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white shadow-sm">
-
+<nav className="relative z-50 w-full bg-white shadow-sm md:sticky md:top-0">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* NAVBAR HEADER */}
@@ -123,6 +122,11 @@ export default function Navbar() {
               </div>
             </div>
 
+             {/* BLOG */}
+            <a href="/blog" className="hover:text-green-700 transition">
+              Blog
+            </a>
+
             {/* GALLERY */}
             <a href="/gallery" className="hover:text-green-700 transition">
               Gallery
@@ -132,6 +136,7 @@ export default function Navbar() {
             <a href="/contact" className="hover:text-green-700 transition">
               Contact
             </a>
+
 
            {/* PLAN YOUR TREK */}
 <a
@@ -247,6 +252,14 @@ export default function Navbar() {
               )}
 
             </div>
+              {/* MOBILE BLOG */}
+            <a
+              href="/blog"
+              onClick={closeMobile}
+              className="block py-2"
+            >
+              Blog
+            </a>
 
             {/* MOBILE GALLERY */}
             <a

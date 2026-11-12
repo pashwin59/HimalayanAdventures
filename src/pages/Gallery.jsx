@@ -1,7 +1,5 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 import mountain1 from "../../photos/mountain1.jpeg";
 import mountain2 from "../../photos/mountain2.jpeg";
 import mountain3 from "../../photos/mountain3.jpeg";

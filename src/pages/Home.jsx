@@ -19,6 +19,8 @@ import camping from "../../photos/camping.jpeg";
 import multiday from "../../photos/multidaytrekking.jpeg";
 import birdwatch from "../../photos/disco.png";
 import heritage from "../../photos/hari.jpg";
+import camps from "../../photos/riverbankcamping.jpg";
+import gags from "../../photos/gang.jpg";
 
 
 /* ------------------------------------------------------------------ */
@@ -106,7 +108,7 @@ const popularRoutes = [
     duration: "2 Days",
     altitude: "Riverbank",
     highlight: "Riverside campfires, outdoor dining and optional rafting.",
-    image: camping,
+    image: camps,
     link: "/packages/camping",
   },
   {
@@ -115,7 +117,7 @@ const popularRoutes = [
     duration: "5–7 Days",
     altitude: "3,800 m",
     highlight: "Kali Gandaki Valley and spectacular mountain desert trails.",
-    image: mountain4,
+    image: gags,
     link: "/packages/cycling",
   },
   {
