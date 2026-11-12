@@ -255,7 +255,7 @@ export default function Services() {
               <div className={index % 2 === 1 ? "lg:order-1" : ""}>
 
                 <p className="text-green-700 uppercase tracking-widest text-sm font-bold">
-                  Himalayan Treks Experiences
+                  Trail Trantra Experiences
                 </p>
 
                 <h2 className="text-3xl md:text-4xl font-bold text-[#173D32] mt-4 leading-tight">
@@ -313,7 +313,7 @@ export default function Services() {
           <div className="text-center mb-14">
 
             <p className="text-green-700 uppercase tracking-widest text-sm font-semibold">
-              The Himalayan Treks Difference
+              The Trail Trantra Difference
             </p>
 
             <h2 className="text-3xl md:text-4xl font-bold mt-4">

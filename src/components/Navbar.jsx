@@ -31,7 +31,7 @@ export default function Navbar() {
             href="/"
             className="text-2xl font-bold text-green-800 whitespace-nowrap"
           >
-            🏔 HIMALAYAN TREKS
+            🏔 TRIAL TRANTRA
           </a>
 
           {/* MOBILE MENU BUTTON */}

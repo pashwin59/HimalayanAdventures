@@ -13,7 +13,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="inline-block">
               <h3 className="text-2xl font-bold tracking-wide">
-                HIMALAYAN TREKS
+               TRAIL TRANTRA
               </h3>
               <p className="text-[10px] tracking-[0.3em] text-[#D1B99A] mt-1">
                 TREKS & EXPEDITIONS
@@ -108,7 +108,7 @@ export default function Footer() {
 
         {/* COPYRIGHT */}
         <div className="border-t border-white/10 mt-14 pt-7 text-center text-gray-400 text-sm">
-          © {new Date().getFullYear()} Himalayan Treks. All rights reserved.
+          © {new Date().getFullYear()} Trail Trantra. All rights reserved.
         </div>
 
       </div>

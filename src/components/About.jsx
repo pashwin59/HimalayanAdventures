@@ -76,7 +76,7 @@ export default function About() {
             </span>
 
             <h1 className="mt-9 max-w-2xl text-4xl font-bold leading-[1.15] tracking-tight text-[#194536] sm:text-5xl lg:text-6xl">
-              Discover the Story Behind Himalayan Treks
+              Discover the Story Behind the Trail Trantra
             </h1>
 
             <p className="mt-7 max-w-xl text-base leading-8 text-[#586b61] md:text-lg">
@@ -154,7 +154,7 @@ export default function About() {
             <p className="mt-7 text-base leading-8 text-[#65746b]">
               Nepal is a land of extraordinary mountains, diverse
               landscapes, ancient traditions and warm hospitality.
-              At Himalayan Treks, we aim to bring travellers closer
+              At Trail Trantra, we aim to bring travellers closer
               to everything that makes this country special.
             </p>
 

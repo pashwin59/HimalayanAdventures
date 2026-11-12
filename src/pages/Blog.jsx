@@ -15,7 +15,7 @@ const articles = [
     category: "Trekking Guides",
     date: "November 10, 2026",
     readTime: "8 min read",
-    author: "Himalayan Treks Team",
+    author: "Trail Trantra Team",
     image:Everest,
     excerpt:
       "Everything you need to know before beginning your unforgettable journey to the foot of the world's highest mountain.",
@@ -34,7 +34,7 @@ const articles = [
     category: "Travel Tips",
     date: "November 5, 2026",
     readTime: "6 min read",
-    author: "Himalayan Treks Team",
+    author: "Trail Trantra Team",
     image:Nepal,
         excerpt:
       "Discover Nepal's trekking seasons and find the perfect time for your Himalayan adventure.",
@@ -54,7 +54,7 @@ const articles = [
     category: "Trekking Guides",
     date: "October 28, 2026",
     readTime: "5 min read",
-    author: "Himalayan Treks Team",
+    author: "Trail Trantra Team",
     image: Hikes,
     excerpt:
       "A practical packing checklist to help you prepare for a comfortable and safe trekking experience.",
@@ -73,7 +73,7 @@ const articles = [
     category: "Destinations",
     date: "October 20, 2026",
     readTime: "7 min read",
-    author: "Himalayan Treks Team",
+    author: "Trail Trantra Team",
     image:Anns,
         excerpt:
       "Explore beautiful mountain villages, forests and the spectacular Annapurna Sanctuary.",
@@ -92,7 +92,7 @@ const articles = [
     category: "Culture",
     date: "October 12, 2026",
     readTime: "6 min read",
-    author: "Himalayan Treks Team",
+    author: "Trail Trantra Team",
     image:Sherpa,
         excerpt:
       "Discover the traditions, hospitality and mountain heritage of Nepal's Himalayan communities.",
@@ -111,7 +111,7 @@ const articles = [
     category: "Travel Tips",
     date: "October 5, 2026",
     readTime: "7 min read",
-    author: "Himalayan Treks Team",
+    author: "Trail Trantra Team",
     image:Heli,    excerpt:
       "Understand altitude, acclimatisation and the importance of preparing properly for high mountain adventures.",
     content: [
