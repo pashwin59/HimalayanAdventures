@@ -1,18 +1,30 @@
+
 import { moderateTrekDetails } from "../data/moderateTrekDetails";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { trekDetails } from "../data/trekDetails";
 import { advancedTrekDetails } from "../data/advancedTrekDetails";
 
 export default function TrekDetail() {
   const { slug } = useParams();
-  const trek = trekDetails[slug] || moderateTrekDetails[slug] || advancedTrekDetails[slug];
+  const location = useLocation();
 
   const [openDay, setOpenDay] = useState(0);
+
+  const trek =
+    trekDetails[slug] ||
+    moderateTrekDetails[slug] ||
+    advancedTrekDetails[slug];
 
   if (!trek) {
     return (
       <main className="min-h-[60vh] flex flex-col items-center justify-center px-6">
+        <title>Trek Not Found | Trail Tantra</title>
+        <meta
+          name="robots"
+          content="noindex, follow"
+        />
+
         <h1 className="text-3xl font-bold text-[#173D32]">
           Trek Not Found
         </h1>
@@ -27,380 +39,459 @@ export default function TrekDetail() {
     );
   }
 
+  // -----------------------------------
+  // DYNAMIC SEO METADATA
+  // -----------------------------------
+
+  const pageTitle = `${trek.name} Trek in Nepal | Trail Tantra`;
+
+  const pageDescription = (
+    trek.seoDescription ||
+    `${trek.description} Explore the ${trek.name} trek in ${trek.region}, Nepal with Trail Tantra.`
+  ).slice(0, 160);
+
+  const canonicalUrl = `https://trailtantra.com${location.pathname}`;
+
+  const imageUrl = trek.image?.startsWith("http")
+    ? trek.image
+    : `https://trailtantra.com${
+        trek.image?.startsWith("/") ? "" : "/"
+      }${trek.image || "ogimage.jpeg"}`;
+
   return (
-    <main className="bg-white text-gray-900">
+    <>
+      {/* DYNAMIC SEO METADATA */}
 
-      {/* COMPACT TREK HEADER */}
-      <section className="bg-[#F7F5EF]">
+      <title>{pageTitle}</title>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-16">
+      <meta
+        name="description"
+        content={pageDescription}
+      />
 
-          {/* BREADCRUMB */}
-          <div className="text-xs tracking-wider text-gray-500 mb-8">
+      <link
+        rel="canonical"
+        href={canonicalUrl}
+      />
 
-            <Link to="/" className="hover:text-green-800">
-              Home
-            </Link>
+      {/* OPEN GRAPH */}
 
-            <span className="mx-2">/</span>
+      <meta property="og:type" content="article" />
+      <meta property="og:site_name" content="Trail Tantra" />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:image" content={imageUrl} />
+      <meta
+        property="og:image:alt"
+        content={`${trek.name} trekking adventure in Nepal`}
+      />
 
-            <Link to="/packages/trek" className="hover:text-green-800">
-              Trekking
-            </Link>
+      {/* TWITTER / X */}
 
-            <span className="mx-2">/</span>
+      <meta
+        name="twitter:card"
+        content="summary_large_image"
+      />
 
-            <Link
-              to="/packages/trek/short-trek"
-              className="hover:text-green-800"
-            >
-              Short Treks
-            </Link>
+      <meta
+        name="twitter:title"
+        content={pageTitle}
+      />
 
-            <span className="mx-2">/</span>
+      <meta
+        name="twitter:description"
+        content={pageDescription}
+      />
 
-            <span className="text-[#A58B58]">
-              {trek.name}
-            </span>
+      <meta
+        name="twitter:image"
+        content={imageUrl}
+      />
 
-          </div>
+      {/* TREK DETAIL PAGE */}
 
+      <main className="bg-white text-gray-900">
 
-          {/* TITLE AND IMAGE */}
-          <div className="grid lg:grid-cols-[1fr_380px] gap-10 lg:gap-16 items-center">
+        {/* COMPACT TREK HEADER */}
 
-            {/* LEFT CONTENT */}
-            <div>
+        <section className="bg-[#F7F5EF]">
 
-              <p className="text-[#A58B58] uppercase tracking-[4px] text-xs font-bold">
-                {trek.region}
-              </p>
+          <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-16">
 
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#263E32] mt-5 leading-tight">
-                {trek.name}
-              </h1>
+            {/* BREADCRUMB */}
 
-              <p className="text-gray-600 text-base md:text-lg leading-8 mt-5 max-w-2xl">
-                {trek.description}
-              </p>
+            <div className="text-xs tracking-wider text-gray-500 mb-8">
 
-              {/* TREK TAGS */}
-              <div className="flex flex-wrap gap-3 mt-7">
-
-                <span className="bg-white text-[#263E32] px-4 py-2 text-sm rounded-full">
-                  {trek.duration}
-                </span>
-
-                <span className="bg-white text-[#263E32] px-4 py-2 text-sm rounded-full">
-                  {trek.difficulty}
-                </span>
-
-                <span className="bg-white text-[#263E32] px-4 py-2 text-sm rounded-full">
-                  {trek.altitude}
-                </span>
-
-              </div>
-
-              <Link
-                to={`/plan-your-trek?trek=${encodeURIComponent(trek.name)}`}
-                className="inline-block mt-8 bg-[#263E32] text-white px-7 py-3 hover:bg-[#A58B58] transition"
-              >
-                Enquire About This Trek →
+              <Link to="/" className="hover:text-green-800">
+                Home
               </Link>
 
-            </div>
+              <span className="mx-2">/</span>
 
+              <Link to="/packages/trek" className="hover:text-green-800">
+                Trekking
+              </Link>
 
-            {/* RIGHT IMAGE */}
-            <div>
+              <span className="mx-2">/</span>
 
-              <img
-                src={trek.image}
-                alt={trek.name}
-                className="w-full h-[230px] md:h-[300px] object-cover rounded-xl shadow-lg"
-              />
+              <Link
+                to="/packages/trek/short-trek"
+                className="hover:text-green-800"
+              >
+                Short Treks
+              </Link>
 
-              <p className="text-xs text-gray-500 mt-3 tracking-wider">
-                EXPLORE THE HIMALAYAS · NEPAL
-              </p>
+              <span className="mx-2">/</span>
 
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* TREK OVERVIEW STATISTICS */}
-      <section className="max-w-7xl mx-auto px-6 md:px-10 pt-12">
-
-        <div className="grid grid-cols-2 md:grid-cols-5 bg-white border border-gray-100 shadow-sm rounded-xl overflow-hidden">
-
-          {[
-            ["Duration", trek.duration],
-            ["Maximum Altitude", trek.altitude],
-            ["Sleeping Altitude", trek.sleepingAltitude],
-            ["Difficulty", trek.difficulty],
-            ["Starting Point", trek.startingPoint],
-          ].map(([label, value]) => (
-
-            <div
-              key={label}
-              className="p-5 md:p-7 border-b md:border-b-0 md:border-r last:border-r-0 border-gray-100"
-            >
-
-              <p className="text-gray-400 text-xs uppercase tracking-wider">
-                {label}
-              </p>
-
-              <p className="text-[#173D32] font-bold mt-3 text-sm md:text-base">
-                {value}
-              </p>
+              <span className="text-[#A58B58]">
+                {trek.name}
+              </span>
 
             </div>
 
-          ))}
+            {/* TITLE AND IMAGE */}
 
-        </div>
+            <div className="grid lg:grid-cols-[1fr_380px] gap-10 lg:gap-16 items-center">
 
-      </section>
+              {/* LEFT CONTENT */}
 
+              <div>
 
-      {/* TREK OVERVIEW AND HIGHLIGHTS */}
-      <section className="max-w-7xl mx-auto px-6 md:px-10 py-16">
+                <p className="text-[#A58B58] uppercase tracking-[4px] text-xs font-bold">
+                  {trek.region}
+                </p>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#263E32] mt-5 leading-tight">
+                  {trek.name}
+                </h1>
 
-          {/* DESCRIPTION */}
-          <div className="lg:col-span-2">
+                <p className="text-gray-600 text-base md:text-lg leading-8 mt-5 max-w-2xl">
+                  {trek.description}
+                </p>
 
-            <p className="text-[#A58B58] uppercase tracking-[3px] text-xs font-bold">
-              The Experience
-            </p>
+                {/* TREK TAGS */}
 
-            <h2 className="font-serif text-3xl md:text-4xl text-[#173D32] mt-4">
-              Discover the Journey
-            </h2>
+                <div className="flex flex-wrap gap-3 mt-7">
 
-            <p className="text-gray-600 leading-8 mt-6">
-              {trek.description}
-            </p>
+                  <span className="bg-white text-[#263E32] px-4 py-2 text-sm rounded-full">
+                    {trek.duration}
+                  </span>
 
-            <p className="text-gray-600 leading-8 mt-4">
-              This journey introduces you to Nepal's natural beauty,
-              mountain landscapes and local culture. The route and
-              daily walking schedule can be adjusted according to
-              weather, trail conditions and your preferences.
-            </p>
+                  <span className="bg-white text-[#263E32] px-4 py-2 text-sm rounded-full">
+                    {trek.difficulty}
+                  </span>
 
-          </div>
-
-
-          {/* HIGHLIGHTS */}
-          <div className="bg-[#173D32] text-white rounded-xl p-8">
-
-            <p className="text-[#D1B99A] uppercase tracking-[3px] text-xs font-bold">
-              Trek Highlights
-            </p>
-
-            <h3 className="font-serif text-2xl mt-4">
-              What Makes It Special
-            </h3>
-
-            <div className="mt-7 space-y-5">
-
-              {trek.highlights.map((item) => (
-
-                <div key={item} className="flex gap-3 items-start">
-
-                  <span className="text-[#D1B99A]">✓</span>
-
-                  <p className="text-white/85 text-sm leading-6">
-                    {item}
-                  </p>
+                  <span className="bg-white text-[#263E32] px-4 py-2 text-sm rounded-full">
+                    {trek.altitude}
+                  </span>
 
                 </div>
 
-              ))}
+                <Link
+                  to={`/plan-your-trek?trek=${encodeURIComponent(trek.name)}`}
+                  className="inline-block mt-8 bg-[#263E32] text-white px-7 py-3 hover:bg-[#A58B58] transition"
+                >
+                  Enquire About This Trek →
+                </Link>
 
-            </div>
+              </div>
 
-            <div className="border-t border-white/20 mt-8 pt-6">
+              {/* RIGHT IMAGE */}
 
-              <p className="text-xs text-white/60 uppercase tracking-wider">
-                Best Time to Visit
-              </p>
+              <div>
 
-              <p className="mt-2 font-semibold">
-                {trek.bestSeason}
-              </p>
+                <img
+                  src={trek.image}
+                  alt={`${trek.name} trekking in Nepal`}
+                  className="w-full h-[230px] md:h-[300px] object-cover rounded-xl shadow-lg"
+                />
+
+                <p className="text-xs text-gray-500 mt-3 tracking-wider">
+                  EXPLORE THE HIMALAYAS · NEPAL
+                </p>
+
+              </div>
 
             </div>
 
           </div>
 
-        </div>
+        </section>
 
-      </section>
+        {/* TREK OVERVIEW STATISTICS */}
 
+        <section className="max-w-7xl mx-auto px-6 md:px-10 pt-12">
 
-      {/* DETAILED ITINERARY */}
-      <section className="bg-[#F4F5F1] py-16 md:py-20 px-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 bg-white border border-gray-100 shadow-sm rounded-xl overflow-hidden">
 
-        <div className="max-w-7xl mx-auto">
+            {[
+              ["Duration", trek.duration],
+              ["Maximum Altitude", trek.altitude],
+              ["Sleeping Altitude", trek.sleepingAltitude],
+              ["Difficulty", trek.difficulty],
+              ["Starting Point", trek.startingPoint],
+            ].map(([label, value]) => (
 
-          {/* ITINERARY HEADING */}
-          <div className="max-w-3xl mb-12">
+              <div
+                key={label}
+                className="p-5 md:p-7 border-b md:border-b-0 md:border-r last:border-r-0 border-gray-100"
+              >
 
-            <p className="text-[#A58B58] uppercase tracking-[3px] text-xs font-bold">
-              Your Journey, Day by Day
-            </p>
+                <p className="text-gray-400 text-xs uppercase tracking-wider">
+                  {label}
+                </p>
 
-            <h2 className="font-serif text-3xl md:text-5xl text-[#173D32] mt-4">
-              Detailed Trek Itinerary
-            </h2>
+                <p className="text-[#173D32] font-bold mt-3 text-sm md:text-base">
+                  {value}
+                </p>
 
-            <p className="text-gray-600 mt-5 leading-7">
-              Explore every stage of your Himalayan adventure,
-              including the route, altitude, walking duration,
-              accommodation and meals.
-            </p>
+              </div>
+
+            ))}
 
           </div>
 
+        </section>
 
-          <div className="grid lg:grid-cols-[1fr_320px] gap-10">
+        {/* TREK OVERVIEW AND HIGHLIGHTS */}
 
-            {/* ITINERARY DAYS */}
-            <div className="space-y-4">
+        <section className="max-w-7xl mx-auto px-6 md:px-10 py-16">
 
-              {trek.itinerary.map((day, index) => {
+          <div className="grid lg:grid-cols-3 gap-12">
 
-                const isOpen = openDay === index;
+            {/* DESCRIPTION */}
 
-                return (
+            <div className="lg:col-span-2">
 
-                  <article
-                    key={day.day}
-                    className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
-                  >
+              <p className="text-[#A58B58] uppercase tracking-[3px] text-xs font-bold">
+                The Experience
+              </p>
 
-                    {/* DAY HEADER */}
-                    <button
-                      type="button"
-                      onClick={() => setOpenDay(isOpen ? -1 : index)}
-                      aria-expanded={isOpen}
-                      className="w-full text-left p-5 md:p-7 flex gap-5 items-start"
+              <h2 className="font-serif text-3xl md:text-4xl text-[#173D32] mt-4">
+                Discover the Journey
+              </h2>
+
+              <p className="text-gray-600 leading-8 mt-6">
+                {trek.description}
+              </p>
+
+              <p className="text-gray-600 leading-8 mt-4">
+                This journey introduces you to Nepal's natural beauty,
+                mountain landscapes and local culture. The route and
+                daily walking schedule can be adjusted according to
+                weather, trail conditions and your preferences.
+              </p>
+
+            </div>
+
+            {/* HIGHLIGHTS */}
+
+            <div className="bg-[#173D32] text-white rounded-xl p-8">
+
+              <p className="text-[#D1B99A] uppercase tracking-[3px] text-xs font-bold">
+                Trek Highlights
+              </p>
+
+              <h3 className="font-serif text-2xl mt-4">
+                What Makes It Special
+              </h3>
+
+              <div className="mt-7 space-y-5">
+
+                {trek.highlights.map((item) => (
+
+                  <div key={item} className="flex gap-3 items-start">
+
+                    <span className="text-[#D1B99A]">✓</span>
+
+                    <p className="text-white/85 text-sm leading-6">
+                      {item}
+                    </p>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+              <div className="border-t border-white/20 mt-8 pt-6">
+
+                <p className="text-xs text-white/60 uppercase tracking-wider">
+                  Best Time to Visit
+                </p>
+
+                <p className="mt-2 font-semibold">
+                  {trek.bestSeason}
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* DETAILED ITINERARY */}
+
+        <section className="bg-[#F4F5F1] py-16 md:py-20 px-6">
+
+          <div className="max-w-7xl mx-auto">
+
+            {/* ITINERARY HEADING */}
+
+            <div className="max-w-3xl mb-12">
+
+              <p className="text-[#A58B58] uppercase tracking-[3px] text-xs font-bold">
+                Your Journey, Day by Day
+              </p>
+
+              <h2 className="font-serif text-3xl md:text-5xl text-[#173D32] mt-4">
+                Detailed Trek Itinerary
+              </h2>
+
+              <p className="text-gray-600 mt-5 leading-7">
+                Explore every stage of your Himalayan adventure,
+                including the route, altitude, walking duration,
+                accommodation and meals.
+              </p>
+
+            </div>
+
+            <div className="grid lg:grid-cols-[1fr_320px] gap-10">
+
+              {/* ITINERARY DAYS */}
+
+              <div className="space-y-4">
+
+                {trek.itinerary.map((day, index) => {
+
+                  const isOpen = openDay === index;
+
+                  return (
+
+                    <article
+                      key={day.day}
+                      className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
                     >
 
-                      {/* DAY NUMBER */}
-                      <div className="shrink-0 w-12 h-12 rounded-full bg-[#C58A36] text-white flex flex-col items-center justify-center">
+                      {/* DAY HEADER */}
 
-                        <span className="text-[9px] leading-none">
-                          DAY
-                        </span>
+                      <button
+                        type="button"
+                        onClick={() => setOpenDay(isOpen ? -1 : index)}
+                        aria-expanded={isOpen}
+                        className="w-full text-left p-5 md:p-7 flex gap-5 items-start"
+                      >
 
-                        <span className="text-lg font-bold leading-tight">
-                          {day.day}
-                        </span>
+                        {/* DAY NUMBER */}
 
-                      </div>
+                        <div className="shrink-0 w-12 h-12 rounded-full bg-[#C58A36] text-white flex flex-col items-center justify-center">
 
-
-                      {/* DAY INFORMATION */}
-                      <div className="flex-1">
-
-                        <h3 className="text-lg md:text-2xl font-bold text-[#173D32]">
-                          {day.title}
-                        </h3>
-
-                        <p className="text-gray-500 text-sm mt-2">
-                          {day.route}
-                        </p>
-
-                        <div className="flex flex-wrap gap-x-6 gap-y-3 mt-5 text-sm text-gray-600">
-
-                          <span>
-                            <strong>Altitude:</strong> {day.altitude}
+                          <span className="text-[9px] leading-none">
+                            DAY
                           </span>
 
-                          <span>
-                            <strong>Duration:</strong> {day.duration}
-                          </span>
-
-                          <span>
-                            <strong>Distance:</strong> {day.distance}
+                          <span className="text-lg font-bold leading-tight">
+                            {day.day}
                           </span>
 
                         </div>
 
-                      </div>
+                        {/* DAY INFORMATION */}
 
+                        <div className="flex-1">
 
-                      {/* EXPAND ARROW */}
-                      <span
-                        className={`text-2xl text-[#173D32] transition-transform duration-300 ${
-                          isOpen ? "rotate-180" : ""
-                        }`}
-                      >
-                        ⌄
-                      </span>
+                          <h3 className="text-lg md:text-2xl font-bold text-[#173D32]">
+                            {day.title}
+                          </h3>
 
-                    </button>
-
-
-                    {/* EXPANDED CONTENT */}
-                    {isOpen && (
-
-                      <div className="px-5 md:px-7 pb-7 md:ml-[68px]">
-
-                        <div className="border-t border-gray-100 pt-5">
-
-                          <p className="text-gray-600 leading-8">
-                            {day.description}
+                          <p className="text-gray-500 text-sm mt-2">
+                            {day.route}
                           </p>
 
+                          <div className="flex flex-wrap gap-x-6 gap-y-3 mt-5 text-sm text-gray-600">
 
-                          {/* DAILY DETAILS */}
-                          <div className="grid sm:grid-cols-3 gap-4 mt-6">
+                            <span>
+                              <strong>Altitude:</strong> {day.altitude}
+                            </span>
 
-                            <div className="bg-[#F5F6F2] p-4 rounded-lg">
+                            <span>
+                              <strong>Duration:</strong> {day.duration}
+                            </span>
 
-                              <p className="text-xs text-gray-400 uppercase">
-                                Accommodation
-                              </p>
+                            <span>
+                              <strong>Distance:</strong> {day.distance}
+                            </span>
 
-                              <p className="font-semibold text-sm mt-2">
-                                {day.accommodation}
-                              </p>
+                          </div>
 
-                            </div>
+                        </div>
 
+                        {/* EXPAND ARROW */}
 
-                            <div className="bg-[#F5F6F2] p-4 rounded-lg">
+                        <span
+                          className={`text-2xl text-[#173D32] transition-transform duration-300 ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        >
+                          ⌄
+                        </span>
 
-                              <p className="text-xs text-gray-400 uppercase">
-                                Meals
-                              </p>
+                      </button>
 
-                              <p className="font-semibold text-sm mt-2">
-                                {day.meals}
-                              </p>
+                      {/* EXPANDED CONTENT */}
 
-                            </div>
+                      {isOpen && (
 
+                        <div className="px-5 md:px-7 pb-7 md:ml-[68px]">
 
-                            <div className="bg-[#F5F6F2] p-4 rounded-lg">
+                          <div className="border-t border-gray-100 pt-5">
 
-                              <p className="text-xs text-gray-400 uppercase">
-                                Walking Time
-                              </p>
+                            <p className="text-gray-600 leading-8">
+                              {day.description}
+                            </p>
 
-                              <p className="font-semibold text-sm mt-2">
-                                {day.duration}
-                              </p>
+                            {/* DAILY DETAILS */}
+
+                            <div className="grid sm:grid-cols-3 gap-4 mt-6">
+
+                              <div className="bg-[#F5F6F2] p-4 rounded-lg">
+
+                                <p className="text-xs text-gray-400 uppercase">
+                                  Accommodation
+                                </p>
+
+                                <p className="font-semibold text-sm mt-2">
+                                  {day.accommodation}
+                                </p>
+
+                              </div>
+
+                              <div className="bg-[#F5F6F2] p-4 rounded-lg">
+
+                                <p className="text-xs text-gray-400 uppercase">
+                                  Meals
+                                </p>
+
+                                <p className="font-semibold text-sm mt-2">
+                                  {day.meals}
+                                </p>
+
+                              </div>
+
+                              <div className="bg-[#F5F6F2] p-4 rounded-lg">
+
+                                <p className="text-xs text-gray-400 uppercase">
+                                  Walking Time
+                                </p>
+
+                                <p className="font-semibold text-sm mt-2">
+                                  {day.duration}
+                                </p>
+
+                              </div>
 
                             </div>
 
@@ -408,184 +499,185 @@ export default function TrekDetail() {
 
                         </div>
 
-                      </div>
+                      )}
 
-                    )}
+                    </article>
 
-                  </article>
+                  );
 
-                );
-
-              })}
-
-            </div>
-
-
-            {/* RIGHT SIDEBAR */}
-            <aside className="space-y-6">
-
-              {/* ENQUIRY CARD */}
-              <div className="bg-white rounded-xl p-7 shadow-sm">
-
-                <h3 className="text-xl font-bold text-[#173D32]">
-                  Plan Your Adventure
-                </h3>
-
-                <p className="text-gray-500 text-sm mt-3 leading-6">
-                  Interested in this trek? Contact our team to
-                  discuss your travel dates and a customized itinerary.
-                </p>
-
-                <Link
-                  to={`/plan-your-trek?trek=${encodeURIComponent(trek.name)}`}
-                  className="block text-center bg-[#173D32] hover:bg-[#A58B58] text-white py-4 mt-6 font-semibold transition"
-                >
-                  Enquire Now →
-                </Link>
+                })}
 
               </div>
 
+              {/* RIGHT SIDEBAR */}
 
-              {/* TREK INFORMATION */}
-              <div className="bg-white rounded-xl p-7 shadow-sm">
+              <aside className="space-y-6">
 
-                <h3 className="text-lg font-bold text-[#173D32] mb-5">
-                  Trek Information
-                </h3>
+                {/* ENQUIRY CARD */}
 
-                <div className="space-y-4 text-sm">
+                <div className="bg-white rounded-xl p-7 shadow-sm">
 
-                  <div>
-                    <p className="text-gray-400">Region</p>
-                    <p className="font-semibold mt-1">
-                      {trek.region}
-                    </p>
-                  </div>
+                  <h3 className="text-xl font-bold text-[#173D32]">
+                    Plan Your Adventure
+                  </h3>
 
-                  <div>
-                    <p className="text-gray-400">Maximum Altitude</p>
-                    <p className="font-semibold mt-1">
-                      {trek.altitude}
-                    </p>
-                  </div>
+                  <p className="text-gray-500 text-sm mt-3 leading-6">
+                    Interested in this trek? Contact our team to
+                    discuss your travel dates and a customized itinerary.
+                  </p>
 
-                  <div>
-                    <p className="text-gray-400">Difficulty</p>
-                    <p className="font-semibold mt-1">
-                      {trek.difficulty}
-                    </p>
-                  </div>
+                  <Link
+                    to={`/plan-your-trek?trek=${encodeURIComponent(trek.name)}`}
+                    className="block text-center bg-[#173D32] hover:bg-[#A58B58] text-white py-4 mt-6 font-semibold transition"
+                  >
+                    Enquire Now →
+                  </Link>
 
-                  <div>
-                    <p className="text-gray-400">Best Season</p>
-                    <p className="font-semibold mt-1">
-                      {trek.bestSeason}
-                    </p>
+                </div>
+
+                {/* TREK INFORMATION */}
+
+                <div className="bg-white rounded-xl p-7 shadow-sm">
+
+                  <h3 className="text-lg font-bold text-[#173D32] mb-5">
+                    Trek Information
+                  </h3>
+
+                  <div className="space-y-4 text-sm">
+
+                    <div>
+                      <p className="text-gray-400">Region</p>
+                      <p className="font-semibold mt-1">
+                        {trek.region}
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-gray-400">Maximum Altitude</p>
+                      <p className="font-semibold mt-1">
+                        {trek.altitude}
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-gray-400">Difficulty</p>
+                      <p className="font-semibold mt-1">
+                        {trek.difficulty}
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-gray-400">Best Season</p>
+                      <p className="font-semibold mt-1">
+                        {trek.bestSeason}
+                      </p>
+                    </div>
+
                   </div>
 
                 </div>
 
+              </aside>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* INCLUSIONS AND EXCLUSIONS */}
+
+        <section className="max-w-7xl mx-auto px-6 md:px-10 py-16">
+
+          <div className="grid md:grid-cols-2 gap-10">
+
+            {/* INCLUDED */}
+
+            <div className="bg-[#F4F6F1] rounded-xl p-8 md:p-10">
+
+              <h2 className="text-2xl font-bold text-[#173D32]">
+                What's Included
+              </h2>
+
+              <div className="mt-7 space-y-4">
+
+                {trek.inclusions.map((item) => (
+
+                  <p
+                    key={item}
+                    className="flex gap-3 text-gray-700 text-sm leading-6"
+                  >
+                    <span className="text-green-700 font-bold">✓</span>
+                    {item}
+                  </p>
+
+                ))}
+
               </div>
 
-            </aside>
+            </div>
 
-          </div>
+            {/* EXCLUDED */}
 
-        </div>
+            <div className="bg-[#F8F4EF] rounded-xl p-8 md:p-10">
 
-      </section>
+              <h2 className="text-2xl font-bold text-[#173D32]">
+                What's Not Included
+              </h2>
 
+              <div className="mt-7 space-y-4">
 
-      {/* INCLUSIONS AND EXCLUSIONS */}
-      <section className="max-w-7xl mx-auto px-6 md:px-10 py-16">
+                {trek.exclusions.map((item) => (
 
-        <div className="grid md:grid-cols-2 gap-10">
+                  <p
+                    key={item}
+                    className="flex gap-3 text-gray-700 text-sm leading-6"
+                  >
+                    <span className="text-red-500 font-bold">×</span>
+                    {item}
+                  </p>
 
-          {/* INCLUDED */}
-          <div className="bg-[#F4F6F1] rounded-xl p-8 md:p-10">
+                ))}
 
-            <h2 className="text-2xl font-bold text-[#173D32]">
-              What's Included
-            </h2>
-
-            <div className="mt-7 space-y-4">
-
-              {trek.inclusions.map((item) => (
-
-                <p
-                  key={item}
-                  className="flex gap-3 text-gray-700 text-sm leading-6"
-                >
-                  <span className="text-green-700 font-bold">✓</span>
-                  {item}
-                </p>
-
-              ))}
+              </div>
 
             </div>
 
           </div>
 
+        </section>
 
-          {/* EXCLUDED */}
-          <div className="bg-[#F8F4EF] rounded-xl p-8 md:p-10">
+        {/* FINAL CALL TO ACTION */}
 
-            <h2 className="text-2xl font-bold text-[#173D32]">
-              What's Not Included
+        <section className="bg-[#173D32] text-white py-20 px-6">
+
+          <div className="max-w-4xl mx-auto text-center">
+
+            <p className="text-[#D1B99A] uppercase tracking-[3px] text-xs font-bold">
+              Your Himalayan Adventure Awaits
+            </p>
+
+            <h2 className="font-serif text-3xl md:text-5xl mt-5">
+              Ready to Explore {trek.name}?
             </h2>
 
-            <div className="mt-7 space-y-4">
+            <p className="text-white/70 mt-6 leading-8 max-w-2xl mx-auto">
+              Let us help you organize your journey with a
+              personalized itinerary and local trekking support.
+            </p>
 
-              {trek.exclusions.map((item) => (
-
-                <p
-                  key={item}
-                  className="flex gap-3 text-gray-700 text-sm leading-6"
-                >
-                  <span className="text-red-500 font-bold">×</span>
-                  {item}
-                </p>
-
-              ))}
-
-            </div>
+            <Link
+              to={`/plan-your-trek?trek=${encodeURIComponent(trek.name)}`}
+              className="inline-block mt-9 bg-[#D1B99A] text-[#173D32] hover:bg-white px-9 py-4 font-bold transition"
+            >
+              Plan This Trek →
+            </Link>
 
           </div>
 
-        </div>
+        </section>
 
-      </section>
-
-
-      {/* FINAL CALL TO ACTION */}
-      <section className="bg-[#173D32] text-white py-20 px-6">
-
-        <div className="max-w-4xl mx-auto text-center">
-
-          <p className="text-[#D1B99A] uppercase tracking-[3px] text-xs font-bold">
-            Your Himalayan Adventure Awaits
-          </p>
-
-          <h2 className="font-serif text-3xl md:text-5xl mt-5">
-            Ready to Explore {trek.name}?
-          </h2>
-
-          <p className="text-white/70 mt-6 leading-8 max-w-2xl mx-auto">
-            Let us help you organize your journey with a
-            personalized itinerary and local trekking support.
-          </p>
-
-          <Link
-            to={`/plan-your-trek?trek=${encodeURIComponent(trek.name)}`}
-            className="inline-block mt-9 bg-[#D1B99A] text-[#173D32] hover:bg-white px-9 py-4 font-bold transition"
-          >
-            Plan This Trek →
-          </Link>
-
-        </div>
-
-      </section>
-
-    </main>
+      </main>
+    </>
   );
 }
