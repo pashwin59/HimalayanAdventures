@@ -9,11 +9,11 @@ import ashwinPhoto from "../../photos/team/ashwin.jpeg";
 import prakashPhoto from "../../photos/team/prakash.jpeg";
 import danapatiPhoto from "../../photos/team/dhanapati.jpg";
 import arjunPhoto from "../../photos/team/arjun.jpeg";
-
+import sahansil from "../../photos/team/sah.jpeg";
 const team = [
   {
     number: "01",
-    name: "Sagar Mani Paudel",
+    name: "Sagar Mani Poudel",
     role: "Managing Director",
     detail: "Strategic leadership & responsible tourism",
     photo: sagarPhoto,
@@ -24,23 +24,30 @@ const team = [
     role: "Administration & Booking",
     detail: "Guest relations, planning & coordination",
     photo: ashwinPhoto,
-  },
-  {
+  }, {
     number: "03",
-    name: "Prakash Paudel",
+    name: "Sahanshil Baral",
+    role: "Trekking guide since 2018",
+    detail: "Mountain trails & local experiences",
+    photo: sahansil,
+  },
+
+  {
+    number: "04",
+    name: "Prakash Subedi",
     role: "Trekking Guide",
     detail: "Mountain trails & local experiences",
     photo: prakashPhoto,
   },
   {
-    number: "04",
+    number: "05",
     name: "Danapati Poudel",
     role: "Trekking Guide",
     detail: "Trekking experiences & route guidance",
     photo: danapatiPhoto,
   },
   {
-    number: "05",
+    number: "06",
     name: "Arzoon Timilsina",
     role: "Trekking Counselor",
     detail: "Trail support & Himalayan exploration",
@@ -316,9 +323,9 @@ function Contact() {
             },
             {
               label: "Write To Us",
-              main: "info@yourdomain.com",
+              main: "trialtantra@gmail.com",
               sub: "We welcome your questions",
-              href: "mailto:info@yourdomain.com",
+              href: "trialtantra@gmail.com",
               icon: (
                 <>
                   <rect x="3" y="5" width="18" height="14" rx="3" />
@@ -598,12 +605,12 @@ function Contact() {
         {/* Lead – featured card */}
         <Reveal delay={100}>
           <div className="group mt-8 grid overflow-hidden rounded-[2rem] border border-[#ece6d6] bg-white transition duration-500 hover:shadow-[0_28px_60px_-30px_rgba(31,58,46,0.4)] md:grid-cols-[0.8fr_1.2fr]">
-            <div className="relative h-80 overflow-hidden md:h-full md:min-h-[400px]">
+            <div className="relative h-96 overflow-hidden md:h-full md:min-h-[400px]">
               <img
                 src={lead.photo}
                 alt={`${lead.name} - ${lead.role}`}
                 loading="lazy"
-                className="h-full w-full object-cover object-top transition duration-[1200ms] group-hover:scale-105"
+                className="h-full w-full object-cover object-[50%_20%] transition duration-[1200ms] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1f3a2e]/40 via-transparent to-transparent" />
             </div>
@@ -633,12 +640,12 @@ function Contact() {
           {crew.map((m, i) => (
             <Reveal key={m.number} delay={i * 80}>
               <div className="group h-full rounded-3xl border border-[#ece6d6] bg-white p-3 transition duration-500 hover:-translate-y-1.5 hover:border-[#b8985a]/50 hover:shadow-[0_28px_50px_-28px_rgba(31,58,46,0.4)]">
-                <div className="relative h-72 overflow-hidden rounded-t-[999px] rounded-b-2xl">
+                <div className="relative mx-auto aspect-[3/4] w-full max-w-[260px] overflow-hidden rounded-t-[999px] rounded-b-2xl sm:aspect-auto sm:h-72 sm:max-w-none">
                   <img
                     src={m.photo}
                     alt={`${m.name} - ${m.role}`}
                     loading="lazy"
-                    className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover object-[50%_20%] transition duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1f3a2e]/50 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
                   <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-white/90 px-3 py-1 font-serif text-xs tracking-widest text-[#8a7142] backdrop-blur">
