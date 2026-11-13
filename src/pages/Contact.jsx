@@ -4,38 +4,51 @@ import emailjs from "@emailjs/browser";
 import groupImage from "../../photos/group.jpeg";
 import mountainImage from "../../photos/mountainduringsunset.jpeg";
 
+import sagarPhoto from "../../photos/team/sagar.jpeg";
+import ashwinPhoto from "../../photos/team/ashwin.jpeg";
+import prakashPhoto from "../../photos/team/prakash.jpeg";
+import danapatiPhoto from "../../photos/team/dhanapati.jpg";
+import arjunPhoto from "../../photos/team/arjun.jpeg";
+
 const team = [
   {
     number: "01",
-    name: "Sagar Mani Poudel",
+    name: "Sagar Mani Paudel",
     role: "Managing Director",
     detail: "Strategic leadership & responsible tourism",
+    photo: sagarPhoto,
   },
   {
     number: "02",
     name: "Ashwin Poudel",
     role: "Administration & Booking",
     detail: "Guest relations, planning & coordination",
+    photo: ashwinPhoto,
   },
   {
     number: "03",
-    name: "Prakash Subedi",
+    name: "Prakash Paudel",
     role: "Trekking Guide",
     detail: "Mountain trails & local experiences",
+    photo: prakashPhoto,
   },
   {
     number: "04",
     name: "Danapati Poudel",
     role: "Trekking Guide",
     detail: "Trekking experiences & route guidance",
+    photo: danapatiPhoto,
   },
   {
     number: "05",
-    name: "Ramanath Poudel",
-    role: "Trekking Guide",
+    name: "Arzoon Timilsina",
+    role: "Trekking Counselor",
     detail: "Trail support & Himalayan exploration",
+    photo: arjunPhoto,
   },
 ];
+
+const [lead, ...crew] = team;
 
 const faqs = [
   {
@@ -57,13 +70,6 @@ const steps = [
   ["We reply personally", "Someone from our team writes back by email."],
   ["Shape the journey", "Together we refine the route and details."],
 ];
-
-const initials = (name) =>
-  name
-    .split(" ")
-    .map((w) => w[0])
-    .slice(0, 2)
-    .join("");
 
 /* Fade-up on scroll */
 function Reveal({ children, delay = 0, className = "" }) {
@@ -589,29 +595,67 @@ function Contact() {
           </div>
         </Reveal>
 
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
-          {team.map((m, i) => (
-            <Reveal
-              key={m.number}
-              delay={i * 80}
-              className={i < 2 ? "lg:col-span-3" : "lg:col-span-2"}
-            >
-              <div className="group h-full rounded-3xl border border-[#ece6d6] bg-white p-7 transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_50px_-28px_rgba(31,58,46,0.4)]">
-                <div className="flex items-center justify-between">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#eef3ea] font-serif text-lg text-[#2c5240] transition group-hover:bg-[#1f3a2e] group-hover:text-white">
-                    {initials(m.name)}
-                  </span>
-                  <span className="font-serif text-sm tracking-widest text-[#cdb98b]">
+        {/* Lead – featured card */}
+        <Reveal delay={100}>
+          <div className="group mt-8 grid overflow-hidden rounded-[2rem] border border-[#ece6d6] bg-white transition duration-500 hover:shadow-[0_28px_60px_-30px_rgba(31,58,46,0.4)] md:grid-cols-[0.8fr_1.2fr]">
+            <div className="relative h-80 overflow-hidden md:h-full md:min-h-[400px]">
+              <img
+                src={lead.photo}
+                alt={`${lead.name} - ${lead.role}`}
+                loading="lazy"
+                className="h-full w-full object-cover object-top transition duration-[1200ms] group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1f3a2e]/40 via-transparent to-transparent" />
+            </div>
+
+            <div className="relative flex flex-col justify-center overflow-hidden bg-[#f8f4e9] p-8 md:p-14">
+              <Contours className="-right-40 -top-10 w-[600px] max-w-none opacity-70" />
+              <span className="relative font-serif text-6xl text-[#e3d6b4] md:text-7xl">
+                {lead.number}
+              </span>
+              <p className="relative mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-[#e3dcc8] bg-white px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a7142]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#b8985a]" />
+                {lead.role}
+              </p>
+              <h3 className="relative mt-5 font-serif text-3xl leading-tight md:text-4xl">
+                {lead.name}
+              </h3>
+              <span className="relative mt-5 h-[2px] w-14 bg-[#b8985a] transition-all duration-500 group-hover:w-28" />
+              <p className="relative mt-5 max-w-md text-[15px] leading-8 text-[#6d6a58]">
+                {lead.detail}
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Crew */}
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {crew.map((m, i) => (
+            <Reveal key={m.number} delay={i * 80}>
+              <div className="group h-full rounded-3xl border border-[#ece6d6] bg-white p-3 transition duration-500 hover:-translate-y-1.5 hover:border-[#b8985a]/50 hover:shadow-[0_28px_50px_-28px_rgba(31,58,46,0.4)]">
+                <div className="relative h-72 overflow-hidden rounded-t-[999px] rounded-b-2xl">
+                  <img
+                    src={m.photo}
+                    alt={`${m.name} - ${m.role}`}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1f3a2e]/50 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+                  <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-white/90 px-3 py-1 font-serif text-xs tracking-widest text-[#8a7142] backdrop-blur">
                     {m.number}
                   </span>
                 </div>
-                <h3 className="mt-6 font-serif text-2xl">{m.name}</h3>
-                <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#b8985a]">
-                  {m.role}
-                </p>
-                <p className="mt-3 text-sm leading-7 text-[#7d7968]">
-                  {m.detail}
-                </p>
+
+                <div className="px-4 pb-5 pt-6 text-center">
+                  <h3 className="font-serif text-xl">{m.name}</h3>
+                  <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#b8985a]">
+                    {m.role}
+                  </p>
+                  <span className="mx-auto mt-4 block h-[2px] w-8 bg-[#b8985a]/60 transition-all duration-500 group-hover:w-16" />
+                  <p className="mt-4 text-sm leading-7 text-[#7d7968]">
+                    {m.detail}
+                  </p>
+                </div>
               </div>
             </Reveal>
           ))}

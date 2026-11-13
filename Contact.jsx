@@ -4,10 +4,15 @@ import emailjs from "@emailjs/browser";
 import groupImage from "../../photos/group.jpeg";
 import mountainImage from "../../photos/mountainduringsunset.jpeg";
 
+import sagarPhoto from "../../photos/team/sagar.jpeg";
+import ashwinPhoto from "../../photos/team/ashwin.jpeg";
+import prakashPhoto from "../../photos/team/prakash.jpeg";
+import danapatiPhoto from "../../photos/team/danapati.jpg";
+import arjun from "../../photos/team/arjun.jpeg";
 const team = [
   {
     number: "01",
-    name: "Sagar Mani Poudel",
+    name: "Sagar Mani Paudel",
     role: "Managing Director",
     detail: "Strategic leadership & responsible tourism",
   },
@@ -19,7 +24,7 @@ const team = [
   },
   {
     number: "03",
-    name: "Prakash Subedi",
+    name: "Prakash Paudel",
     role: "Trekking Guide",
     detail: "Mountain trails & local experiences",
   },
@@ -31,8 +36,8 @@ const team = [
   },
   {
     number: "05",
-    name: "Ramanath Poudel",
-    role: "Trekking Guide",
+    name: "Arzoon Timilsina",
+    role: "Trekking Counsellor",
     detail: "Trail support & Himalayan exploration",
   },
 ];
@@ -255,9 +260,9 @@ export default function Contact() {
             {
               type: "email",
               label: "Email Us",
-              title: "info@yourdomain.com",
+              title: "trailtantra@gmail.com",
               description: "We welcome your questions",
-              href: "mailto:info@yourdomain.com",
+              href: "mailto:trailtantra@gmail.com",
             },
             {
               type: "time",
