@@ -26,7 +26,7 @@ const team = [
     photo: ashwinPhoto,
   }, {
     number: "03",
-    name: "Sahanshil Baral",
+    name: " Sahanshil Baral",
     role: "Trekking guide since 2018",
     detail: "Mountain trails & local experiences",
     photo: sahansil,
