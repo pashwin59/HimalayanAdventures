@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://trailtantra.com/</loc>
-        <lastmod>2026-11-13</lastmod>
-    </url>
+
+    <!-- MAIN PAGES -->
+    <url><loc>https://trailtantra.com/</loc></url>
+    <url><loc>https://trailtantra.com/about</loc></url>
+    <url><loc>https://trailtantra.com/services</loc></url>
+    <url><loc>https://trailtantra.com/gallery</loc></url>
+    <url><loc>https://trailtantra.com/contact</loc></url>
+    <url><loc>https://trailtantra.com/blog</loc></url>
+    <url><loc>https://trailtantra.com/plan-your-trek</loc></url>
+
+    <!-- TREKKING CATEGORY PAGES -->
+    <url><loc>https://trailtantra.com/packages/trek</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/short-trek</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/moderate-trek</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/advanced-trek</loc></url>
+
+    <!-- OTHER ADVENTURE PACKAGES -->
+    <url><loc>https://trailtantra.com/packages/sightseeing</loc></url>
+    <url><loc>https://trailtantra.com/packages/hiking</loc></url>
+    <url><loc>https://trailtantra.com/packages/cycling</loc></url>
+    <url><loc>https://trailtantra.com/packages/camping</loc></url>
+
+    <!-- SHORT TREK DETAILS -->
+    <url><loc>https://trailtantra.com/packages/trek/short-trek/ghorepani-poon-hill</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/short-trek/mardi-himal</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/short-trek/panchase</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/short-trek/nagarkot-dhulikhel</loc></url>
+
+    <!-- MODERATE TREK DETAILS -->
+    <url><loc>https://trailtantra.com/packages/trek/moderate-trek/annapurna-base-camp</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/moderate-trek/langtang-valley</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/moderate-trek/mardi-himal-full</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/moderate-trek/khopra-ridge</loc></url>
+
+    <!-- ADVANCED TREK DETAILS -->
+    <url><loc>https://trailtantra.com/packages/trek/advanced-trek/everest-base-camp-cho-la-pass</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/advanced-trek/api-himal-base-camp</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/advanced-trek/shey-phoksundo-lake</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/advanced-trek/annapurna-circuit-thorong-la</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/advanced-trek/manaslu-circuit</loc></url>
+    <url><loc>https://trailtantra.com/packages/trek/advanced-trek/everest-three-passes</loc></url>
+
 </urlset>
