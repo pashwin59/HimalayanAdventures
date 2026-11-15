@@ -20,7 +20,7 @@ export default function Navbar() {
   };
 
   return (
-<nav className="relative z-50 w-full bg-white shadow-sm md:sticky md:top-0">
+<nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">  
       <div className="max-w-7xl mx-auto px-6">
 
         {/* NAVBAR HEADER */}
@@ -31,7 +31,7 @@ export default function Navbar() {
             href="/"
             className="text-2xl font-bold text-green-800 whitespace-nowrap"
           >
-            🏔 TRIAL TANTRA
+            🏔 TRAIL TANTRA
           </a>
 
           {/* MOBILE MENU BUTTON */}
